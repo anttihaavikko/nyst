@@ -42,6 +42,7 @@ public class Clicker : MonoBehaviour
         if (clickable != _prev)
         {
             UpdateCursor(clickable);   
+            clickable?.ToggleOutline(true);
         }
 
         _prev = clickable;
@@ -56,6 +57,7 @@ public class Clicker : MonoBehaviour
 
     private void UpdateCursor(bool state)
     {
+        _prev?.ToggleOutline(false);
         const float duration = 0.2f;
         var size = Vector3.one * (state ? 1f : 0.6f);
         cursorLines.ForEach(l => Tweener.ScaleToBounceOut(l, size, duration));

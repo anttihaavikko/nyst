@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PanelButton : Clickable
 {
+    [SerializeField] private Toggleable toggleable;
     [SerializeField] private bool correct;
     
     private bool _state;
@@ -28,7 +29,8 @@ public class PanelButton : Clickable
         Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_state ? _start * 0.5f : _start), 0.2f);
         _meshRenderer.material.SetColor(BaseColor, GetColor());
         // _meshRenderer.material.EnableKeyword("_EMISSION");
-        _panel.Check();
+        _panel?.Check();
+        toggleable?.ToggleTo(_state);
     }
 
     private Color GetColor()
