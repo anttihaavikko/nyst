@@ -8,6 +8,7 @@ using UnityEngine;
 public class ButtonPanel : MonoBehaviour
 {
     [SerializeField] private Toggleable toggleable;
+    [SerializeField] private Vector3 rotation;
     
     private PanelButton[] _buttons;
 
@@ -24,7 +25,7 @@ public class ButtonPanel : MonoBehaviour
         const float duration = 0.6f;
         _done = true;
         Tweener.ScaleToBounceOut(transform, Vector3.one * 0.8f, duration);
-        Tweener.RotateToBounceOut(transform, Quaternion.Euler(-45f, 0, 0), duration);
+        Tweener.RotateToBounceOut(transform, Quaternion.Euler(rotation), duration);
         
         toggleable?.Toggle();
     }
