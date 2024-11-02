@@ -32,8 +32,8 @@ public class CameraBop : MonoBehaviour
 
     private int GetMode()
     {
-        if (input.sprint) return 2;
-        if (input.move.magnitude > 0.1f) return 1;
-        return 0;
+        var moving = input.move.magnitude > 0.1f;
+        if (moving && input.sprint) return 2;
+        return moving ? 1 : 0;
     }
 }
