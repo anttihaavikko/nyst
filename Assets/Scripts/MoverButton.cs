@@ -1,11 +1,11 @@
 using AnttiStarterKit.Animations;
 using AnttiStarterKit.Extensions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MoverButton : Clickable
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private Transform end;
+    [SerializeField] private Toggleable toggleable;
 
     private Vector3 _originalPosition, _originalScale;
     private Quaternion _originalRotation;
@@ -19,10 +19,6 @@ public class MoverButton : Clickable
     {
         _meshRenderer = GetComponent<MeshRenderer>();
         _start = transform.localPosition.x;
-        
-        _originalPosition = target.position;
-        _originalScale = target.localScale;
-        _originalRotation = target.rotation;
     }
 
     public override void Click()
@@ -30,9 +26,7 @@ public class MoverButton : Clickable
         _state = !_state;
         Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_state ? _start * 0.5f : _start), 0.2f);
         _meshRenderer.material.SetColor(BaseColor, GetColor());
-        Tweener.MoveToBounceOut(target, _state ? end.position : _originalPosition, 0.5f);
-        Tweener.ScaleToBounceOut(target, _state ? end.localScale : _originalScale, 0.5f);
-        Tweener.RotateToBounceOut(target, _state ? end.rotation : _originalRotation, 0.5f);
+        toggleable.ToggleTo(_state);
     }
 
     private Color GetColor()
