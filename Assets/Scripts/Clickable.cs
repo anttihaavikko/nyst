@@ -8,7 +8,7 @@ public abstract class Clickable : MonoBehaviour
 
     public void ToggleOutline(bool state)
     {
-        Debug.Log($"Toggle {gameObject.name} to {state}");
+        // Debug.Log($"Toggle {gameObject.name} to {state}");
         if (outline)
         {
             outline.enabled = state;   
