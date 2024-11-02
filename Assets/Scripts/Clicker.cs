@@ -26,7 +26,15 @@ public class Clicker : MonoBehaviour
     {
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         var hits = Physics.RaycastAll(ray.origin, ray.direction, distance);
-        if (hits.Length <= 0) return;
+        if (hits.Length <= 0)
+        {
+            if (_prev)
+            {
+                UpdateCursor(false);
+            }
+            _prev = null;
+            return;
+        }
         
         var target = hits.OrderBy(o => Vector3.Distance(cam.transform.position, o.point)).First();
         var clickable = target.collider.GetComponent<Clickable>();

@@ -32,7 +32,7 @@ public class PanelButton : Clickable
 
     private Color GetColor()
     {
-        if (!_state) return new Color(0.7f, 0.7f, 0.7f);
+        if (!_state) return buttonOffColor;
         return correct ? Color.white : Color.black;
     }
 }
