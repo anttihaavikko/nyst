@@ -24,7 +24,7 @@ public class Clicker : MonoBehaviour
 
     private void Update()
     {
-        var ray = cam.ScreenPointToRay(Input.mousePosition);
+        var ray = new Ray(cam.transform.position - cam.transform.forward * 0.5f, cam.transform.forward);
         var hits = Physics.RaycastAll(ray.origin, ray.direction, distance);
         if (hits.Length <= 0)
         {
