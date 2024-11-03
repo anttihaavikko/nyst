@@ -63,6 +63,8 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+		
+		public float VerticalVelocity => _verticalVelocity;
 
 	
 #if ENABLE_INPUT_SYSTEM

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Finger : MonoBehaviour
 {
@@ -9,11 +10,13 @@ public class Finger : MonoBehaviour
     
     private List<Transform> _bones;
     private Quaternion _origin;
+    private float noiseOffset;
 
     private void Start()
     {
         SetBones();
         _origin = transform.localRotation;
+        noiseOffset = Random.value * 1000f;
     }
 
     private void SetBones()
@@ -29,6 +32,7 @@ public class Finger : MonoBehaviour
 
     private void Update()
     {
-        _bones.ForEach(b => b.localRotation = _origin * Quaternion.Euler(Mathf.Abs(Mathf.Sin(Time.time)) * -90f * amount, 0f, 0f));
+        var diff = Mathf.Clamp01(Mathf.Abs(Mathf.Sin(Time.time) + Mathf.PerlinNoise1D(Time.time * 0.3f + noiseOffset) * 1.3f - 0.7f));
+        _bones.ForEach(b => b.localRotation = _origin * Quaternion.Euler(diff * -90f * amount, 0f, 0f));
     }
 }
