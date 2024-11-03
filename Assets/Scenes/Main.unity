@@ -5572,7 +5572,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: 687b70eb9c49243639f9379f6965034f, type: 2}
       color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
+      size: 0.05
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1
@@ -6584,6 +6584,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 326580000}
   distance: 3
+  mask:
+    serializedVersion: 2
+    m_Bits: 51
   cursorWrap: {fileID: 263384599}
   cursorLines:
   - {fileID: 1423318051}
@@ -10014,7 +10017,7 @@ MonoBehaviour:
     m_Style:
       shape: {fileID: 4300000, guid: 687b70eb9c49243639f9379f6965034f, type: 2}
       color: {r: 1, g: 0, b: 0, a: 0.5}
-      size: 0.1
+      size: 0.05
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0}
     m_Visible: 1

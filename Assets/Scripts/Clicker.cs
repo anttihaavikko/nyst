@@ -11,6 +11,7 @@ public class Clicker : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private float distance = 1f;
+    [SerializeField] private LayerMask mask;
 
     [SerializeField] private Transform cursorWrap;
     [SerializeField] private List<Transform> cursorLines;
@@ -25,7 +26,7 @@ public class Clicker : MonoBehaviour
     private void Update()
     {
         var ray = new Ray(cam.transform.position - cam.transform.forward * 0.5f, cam.transform.forward);
-        var hits = Physics.RaycastAll(ray.origin, ray.direction, distance);
+        var hits = Physics.RaycastAll(ray.origin, ray.direction, distance, mask);
         if (hits.Length <= 0)
         {
             if (_prev)
@@ -37,6 +38,9 @@ public class Clicker : MonoBehaviour
         }
         
         var target = hits.OrderBy(o => Vector3.Distance(cam.transform.position, o.point)).First();
+
+        Debug.Log($"Pointing at {target.collider.name}");
+        
         var clickable = target.collider.GetComponent<Clickable>();
 
         if (clickable != _prev)
