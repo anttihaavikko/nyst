@@ -40,7 +40,8 @@ public class Hand : MonoBehaviour
 
     private Vector3 GetWristAngle()
     {
-        _pointPhase = Mathf.MoveTowards(_pointPhase, _pointing ? 1f : 0f, Time.deltaTime * (_pointing ? 5f : 2f));
+        var isPointing = _pointing || direction > 0 && Input.GetMouseButton(1);
+        _pointPhase = Mathf.MoveTowards(_pointPhase, isPointing ? 1f : 0f, Time.deltaTime * (isPointing ? 5f : 2f));
         thumb.Curl(_pointPhase);
         index.Curl(_pointPhase);
         var idle = new Vector3((Mathf.PerlinNoise1D(Time.time * 0.5f + _wristOffset) - 0.5f) * 40f, 0, 0);
