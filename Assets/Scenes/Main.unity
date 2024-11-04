@@ -432,6 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37762980}
   - component: {fileID: 37762981}
+  - component: {fileID: 37762982}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -476,8 +477,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3593bbe24416db2f7b1da00a0e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleable: {fileID: 0}
   rotation: {x: -45, y: 0, z: 0}
+--- !u!114 &37762982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37762979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f555a0796d884ee8b508f695fc42e1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activates: []
 --- !u!1001 &48743392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,7 +1708,7 @@ Transform:
   m_GameObject: {fileID: 314913547}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.394}
+  m_LocalPosition: {x: 0, y: 0.4499997, z: 0.394}
   m_LocalScale: {x: 1, y: 1, z: 0.106000006}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2085,7 +2098,7 @@ Transform:
   m_GameObject: {fileID: 335662107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4469951}
+  m_LocalPosition: {x: 0, y: 0.41, z: -0.4469951}
   m_LocalScale: {x: 1, y: 1, z: 0.106000006}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2620,8 +2633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613208ec2a9946ba922091816503e6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 0}
-  toggled: {fileID: 0}
   computer: {fileID: 420901786}
 --- !u!4 &431882795 stripped
 Transform:
@@ -4252,7 +4263,7 @@ GameObject:
   - component: {fileID: 554277977}
   - component: {fileID: 554277978}
   m_Layer: 0
-  m_Name: Toggleable
+  m_Name: top bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4731,6 +4742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 641503427}
   - component: {fileID: 641503428}
+  - component: {fileID: 641503429}
   m_Layer: 0
   m_Name: Panel (2)
   m_TagString: Untagged
@@ -4775,8 +4787,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3593bbe24416db2f7b1da00a0e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleable: {fileID: 0}
   rotation: {x: 90, y: 180, z: 0}
+--- !u!114 &641503429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641503426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f555a0796d884ee8b508f695fc42e1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activates: []
 --- !u!1 &649468971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,7 +5608,7 @@ Transform:
   m_GameObject: {fileID: 801235005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.4469951}
+  m_LocalPosition: {x: 0, y: 0.16, z: -0.4469951}
   m_LocalScale: {x: 1, y: 1, z: 0.106000006}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6901,6 +6925,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 102422876}
     m_Modifications:
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: activates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'activates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 554277978}
     - target: {fileID: 2080983225697927092, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06608105
@@ -6951,7 +6983,7 @@ PrefabInstance:
       objectReference: {fileID: 554277978}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: top button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7450,6 +7482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 952505883}
   - component: {fileID: 952505884}
+  - component: {fileID: 952505885}
   m_Layer: 0
   m_Name: Panel (3)
   m_TagString: Untagged
@@ -7494,8 +7527,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3593bbe24416db2f7b1da00a0e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleable: {fileID: 0}
   rotation: {x: 90, y: 270, z: 0}
+--- !u!114 &952505885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952505882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f555a0796d884ee8b508f695fc42e1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activates: []
 --- !u!1 &963772964
 GameObject:
   m_ObjectHideFlags: 0
@@ -7792,6 +7837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042942558}
   - component: {fileID: 1042942559}
+  - component: {fileID: 1042942560}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -7836,8 +7882,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3593bbe24416db2f7b1da00a0e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleable: {fileID: 821141903}
   rotation: {x: -45, y: 0, z: 0}
+--- !u!114 &1042942560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042942557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f555a0796d884ee8b508f695fc42e1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activates:
+  - {fileID: 821141903}
 --- !u!1 &1049450082
 GameObject:
   m_ObjectHideFlags: 0
@@ -8138,7 +8197,7 @@ GameObject:
   - component: {fileID: 1078393885}
   - component: {fileID: 1078393886}
   m_Layer: 0
-  m_Name: Toggleable (2)
+  m_Name: bottom bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8608,6 +8667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095433ff060849689ceab97855c611bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needsShift: 1
 --- !u!114 &1165471541 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -10001,6 +10061,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1906231194}
     m_Modifications:
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: activates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'activates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 420901787}
     - target: {fileID: 2080983225697927092, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -10480,6 +10548,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 102422876}
     m_Modifications:
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: activates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'activates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1705461556}
     - target: {fileID: 2080983225697927092, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06608105
@@ -10530,7 +10606,7 @@ PrefabInstance:
       objectReference: {fileID: 1705461556}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: middle button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11105,6 +11181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611321120}
   - component: {fileID: 1611321121}
+  - component: {fileID: 1611321122}
   m_Layer: 0
   m_Name: Panel (1)
   m_TagString: Untagged
@@ -11149,8 +11226,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3593bbe24416db2f7b1da00a0e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleable: {fileID: 0}
   rotation: {x: 45, y: 90, z: 0}
+--- !u!114 &1611321122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611321119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f555a0796d884ee8b508f695fc42e1de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activates: []
 --- !u!1001 &1635652074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11159,6 +11248,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 102422876}
     m_Modifications:
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: activates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 250907017040381665, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'activates.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1078393886}
     - target: {fileID: 2080983225697927092, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06608105
@@ -11209,7 +11306,7 @@ PrefabInstance:
       objectReference: {fileID: 1078393886}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
-      value: Button (2)
+      value: bottom button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11517,7 +11614,7 @@ GameObject:
   - component: {fileID: 1705461555}
   - component: {fileID: 1705461556}
   m_Layer: 0
-  m_Name: Toggleable (1)
+  m_Name: middle bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14057,8 +14154,8 @@ SceneRoots:
   - {fileID: 1921415487}
   - {fileID: 1073182186}
   - {fileID: 249539908}
-  - {fileID: 451143328}
   - {fileID: 821141902}
+  - {fileID: 451143328}
   - {fileID: 180973735}
   - {fileID: 314554651}
   - {fileID: 850245648}

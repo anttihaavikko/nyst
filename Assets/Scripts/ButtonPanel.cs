@@ -7,16 +7,17 @@ using UnityEngine;
 
 public class ButtonPanel : MonoBehaviour
 {
-    [SerializeField] private Toggleable toggleable;
     [SerializeField] private Vector3 rotation;
-    
-    private PanelButton[] _buttons;
+
+    private Activator _activator;
+    private PushButton[] _buttons;
 
     private bool _done;
 
     private void Start()
     {
-        _buttons = GetComponentsInChildren<PanelButton>();
+        _activator = GetComponent<Activator>();
+        _buttons = GetComponentsInChildren<PushButton>();
     }
 
     public void Check()
@@ -27,6 +28,6 @@ public class ButtonPanel : MonoBehaviour
         Tweener.ScaleToBounceOut(transform, Vector3.one * 0.8f, duration);
         Tweener.RotateToBounceOut(transform, Quaternion.Euler(rotation), duration);
         
-        toggleable?.Toggle();
+        _activator?.Activate();
     }
 }

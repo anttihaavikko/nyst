@@ -65,6 +65,7 @@ public class Clicker : MonoBehaviour
         
         if (clickable)
         {
+            right.Push();
             clickable.Click();
         }
     }

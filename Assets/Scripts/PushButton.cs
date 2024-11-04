@@ -2,11 +2,12 @@ using AnttiStarterKit.Animations;
 using AnttiStarterKit.Extensions;
 using UnityEngine;
 
-public class PanelButton : Clickable
+public class PushButton : Clickable
 {
-    [SerializeField] private Toggleable toggleable;
     [SerializeField] private bool correct;
     [SerializeField] private bool blinks;
+    
+    private Activator _activator;
     
     private bool _state;
     private MeshRenderer _meshRenderer;
@@ -19,6 +20,7 @@ public class PanelButton : Clickable
 
     private void Start()
     {
+        _activator = GetComponent<Activator>();
         _meshRenderer = GetComponent<MeshRenderer>();
         _panel = GetComponentInParent<ButtonPanel>();
         _start = transform.localPosition.x;
@@ -31,7 +33,8 @@ public class PanelButton : Clickable
         _meshRenderer.material.SetColor(BaseColor, GetColor());
         // _meshRenderer.material.EnableKeyword("_EMISSION");
         _panel?.Check();
-        toggleable?.ToggleTo(_state);
+        
+        _activator?.Activate();
 
         if (blinks)
         {

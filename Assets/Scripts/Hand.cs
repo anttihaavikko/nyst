@@ -33,6 +33,11 @@ public class Hand : MonoBehaviour
         _pointing = state;
     }
 
+    public void Push()
+    {
+        _pointPhase = 0.25f;
+    }
+
     private void LateUpdate()
     {
         wrist.Rotate(GetWristAngle());

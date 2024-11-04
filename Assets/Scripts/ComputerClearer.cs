@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class ComputerClearer : Toggleable
+public class ComputerClearer : Activatable
 {
     [SerializeField] private Computer computer;
 
-    public override void ToggleTo(bool state)
+    public override void Activate()
     {
         computer.Clear();
     }
