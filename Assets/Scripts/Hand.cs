@@ -71,7 +71,7 @@ public class Hand : MonoBehaviour
         var diff = Mathf.Lerp(0, Mathf.Abs(Mathf.Sin(phase)) - 0.5f, _delta);
         var dir = Mathf.PerlinNoise1D(_time * 0.3f + direction * 100f) * 1.5f - 0.75f + diff + _lift;
         var drop = Mathf.Sin(_drop) * 0.1f;
-        target.localPosition = _originalPosition + Vector3.up * (dir * 0.1f) + Vector3.down * drop + Vector3.forward * (drop * 0.5f);
+        target.localPosition = _originalPosition + Vector3.up * (dir * 0.1f) + Vector3.down * drop + Vector3.left * (drop * 0.75f);
         _wasGrounded = firstPersonController.Grounded;
         _drop = Mathf.MoveTowards(_drop, 0, Time.deltaTime * 5f);
     }
