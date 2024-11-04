@@ -39,7 +39,7 @@ public class Clicker : MonoBehaviour
         
         var target = hits.OrderBy(o => Vector3.Distance(cam.transform.position, o.point)).First();
 
-        Debug.Log($"Pointing at {target.collider.name}");
+        // Debug.Log($"Pointing at {target.collider.name}");
         
         var clickable = target.collider.GetComponent<Clickable>();
 

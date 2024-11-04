@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81df46033a3434d878daaaacdf6c8e6, type: 3}
+  m_Name: _LetterSet
+  m_EditorClassIdentifier: 
+  sprites:
+  - key: a
+    sprite: {fileID: 21300000, guid: 0fffd255420964ed1bae76c33a5ecb12, type: 3}
+    offset: 0
+    width: 100
+  - key: b
+    sprite: {fileID: 21300000, guid: 9b1cb2d7d711d4a238957a3800e3bc9a, type: 3}
+    offset: 0
+    width: 40
+  - key: c
+    sprite: {fileID: 21300000, guid: bbe6032cafc2843f0984c1429d2d752f, type: 3}
+    offset: 60
+    width: 40
+  - key: d
+    sprite: {fileID: 21300000, guid: 5b09781a55a9640bfa32b989645578b4, type: 3}
+    offset: 0
+    width: 40
+  - key: e
+    sprite: {fileID: 21300000, guid: effe7c98a8de948e7b2bef17b5e196f5, type: 3}
+    offset: 0
+    width: 100
+  - key: f
+    sprite: {fileID: 21300000, guid: 5f215b59f0b9d434ea109e656b16f99f, type: 3}
+    offset: 0
+    width: 40
+  - key: g
+    sprite: {fileID: 21300000, guid: 275b6a1c409f44f3da7f0ff1428fc804, type: 3}
+    offset: 60
+    width: 40
+  - key: h
+    sprite: {fileID: 21300000, guid: 2acfc2bbe36a54aeb8814c79004348cf, type: 3}
+    offset: 30
+    width: 40
+  - key: i
+    sprite: {fileID: 21300000, guid: e77e657ce7dae48ea842c5aba7440f11, type: 3}
+    offset: 0
+    width: 100
+  - key: j
+    sprite: {fileID: 21300000, guid: a230cc83018344a248d618ab08b3a7cc, type: 3}
+    offset: 0
+    width: 40
+  - key: k
+    sprite: {fileID: 21300000, guid: 133100c2f0a9d43a5ac2dda69a8f90e5, type: 3}
+    offset: 60
+    width: 40
+  - key: l
+    sprite: {fileID: 21300000, guid: fb74474effa224f1b8b553639503bf33, type: 3}
+    offset: 0
+    width: 100
+  - key: m
+    sprite: {fileID: 21300000, guid: 3efaf671e30ef4eb09bf9aeb0cced6c5, type: 3}
+    offset: 0
+    width: 100
+  - key: n
+    sprite: {fileID: 21300000, guid: be494a1f4db9e4748af7bbab16d1fc3c, type: 3}
+    offset: 0
+    width: 40
+  - key: o
+    sprite: {fileID: 21300000, guid: d9a1e4668951c4647a85b7a96d7f32a0, type: 3}
+    offset: 0
+    width: 100
+  - key: p
+    sprite: {fileID: 21300000, guid: 845a2b9802dc4449294d8b5dc56a6663, type: 3}
+    offset: 60
+    width: 40
+  - key: q
+    sprite: {fileID: 21300000, guid: b11a1b717e597480c92dfd091540c8a5, type: 3}
+    offset: 60
+    width: 40
+  - key: r
+    sprite: {fileID: 21300000, guid: 653b0958789924b469cdeeff17ddf0a2, type: 3}
+    offset: 0
+    width: 40
+  - key: s
+    sprite: {fileID: 21300000, guid: 4dde0f5e2ee2a4f3895d178273206d01, type: 3}
+    offset: 0
+    width: 100
+  - key: t
+    sprite: {fileID: 21300000, guid: 8bc3cb4fa2a344b64aae3418a9b0af40, type: 3}
+    offset: 30
+    width: 40
+  - key: u
+    sprite: {fileID: 21300000, guid: 9b9025b3e270b468fb1057c0fa47dd9f, type: 3}
+    offset: 30
+    width: 40
+  - key: v
+    sprite: {fileID: 21300000, guid: 94c7c7188bbbd4d45b2d356051d35ca2, type: 3}
+    offset: 0
+    width: 100
+  - key: w
+    sprite: {fileID: 21300000, guid: 5205cc51e839440b5a085ec1e30d92c3, type: 3}
+    offset: 0
+    width: 100
+  - key: x
+    sprite: {fileID: 21300000, guid: 2244b6777fb0b40cbaa73ca9eae70c0c, type: 3}
+    offset: 30
+    width: 40
+  - key: y
+    sprite: {fileID: 21300000, guid: 75dbf17616a7941bca997809f0b47845, type: 3}
+    offset: 0
+    width: 100
+  - key: z
+    sprite: {fileID: 21300000, guid: 3fd6f8118bde740edb7abfeaa6c57e60, type: 3}
+    offset: 0
+    width: 100
+  - key: space
+    sprite: {fileID: 21300000, guid: d07fed9de038144509ee9625988bc320, type: 3}
+    offset: 0
+    width: 100
+  - key: end
+    sprite: {fileID: 21300000, guid: 150abccf82e0d4950a90a32240c214d3, type: 3}
+    offset: 0
+    width: 100
+  - key: first
+    sprite: {fileID: 21300000, guid: f5e5ff0e1f2554a2db13e274fa5209c3, type: 3}
+    offset: 0
+    width: 100
+  - key: second
+    sprite: {fileID: 21300000, guid: 38bba5709b68648b184214e99fe85e5a, type: 3}
+    offset: 0
+    width: 100
+  - key: same
+    sprite: {fileID: 21300000, guid: 983b6102706e34902ad1e9821daad15a, type: 3}
+    offset: 0
+    width: 100
