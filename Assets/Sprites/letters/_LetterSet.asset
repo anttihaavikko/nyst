@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: _LetterSet
   m_EditorClassIdentifier: 
   sprites:
-  - key: a
-    sprite: {fileID: 21300000, guid: 0fffd255420964ed1bae76c33a5ecb12, type: 3}
-    offset: 0
-    width: 100
+  - key: end
+    sprite: {fileID: 21300000, guid: 150abccf82e0d4950a90a32240c214d3, type: 3}
+    offset: 60
+    width: 40
   - key: b
     sprite: {fileID: 21300000, guid: 9b1cb2d7d711d4a238957a3800e3bc9a, type: 3}
     offset: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: d07fed9de038144509ee9625988bc320, type: 3}
     offset: 0
     width: 100
-  - key: end
-    sprite: {fileID: 21300000, guid: 150abccf82e0d4950a90a32240c214d3, type: 3}
+  - key: a
+    sprite: {fileID: 21300000, guid: 0fffd255420964ed1bae76c33a5ecb12, type: 3}
     offset: 0
     width: 100
   - key: first

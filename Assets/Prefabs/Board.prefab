@@ -90,7 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowWidth: 500
-  contents: quick brown fox jumpst over the lazy dog
+  contents: quick brown fox jumps over the lazy dog.
+  centered: 0
+  color: {r: 1, g: 1, b: 1, a: 1}
   letters: {fileID: 11400000, guid: 93642091b9807461689a5b098de89b1f, type: 2}
   characterPrefab: {fileID: 6881689279470684541, guid: 9b6a197740fb04b2d93b8588b1eb357b, type: 3}
   rowPrefab: {fileID: 7865119604725583009, guid: fe2e22ba7b30242898ccf72b89438701, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace AnttiStarterKit.Animations
@@ -8,7 +9,23 @@ namespace AnttiStarterKit.Animations
 
         private void Update()
         {
+            Fix();
+        }
+
+        private void FixedUpdate()
+        {
+            Fix();
+        }
+
+        private void LateUpdate()
+        {
+            Fix();
+        }
+
+        private void Fix()
+        {
             transform.position = target.position;
+            transform.rotation = target.rotation;
         }
     }
 }
