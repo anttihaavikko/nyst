@@ -1,4 +1,5 @@
 using System;
+using AnttiStarterKit.Animations;
 using StarterAssets;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,19 +18,33 @@ public class Hand : MonoBehaviour
     private float _time;
     private float _lift;
     private float _wristOffset;
-    private Quaternion _wristStart;
+    private bool _pointing;
+    private float _pointPhase;
     
     private const float Speed = 3f;
 
     private void Start () {
         _originalPosition = target.localPosition;
         _wristOffset = Random.value * 1000f;
-        _wristStart = wrist.localRotation;
+    }
+
+    public void Point(bool state)
+    {
+        _pointing = state;
     }
 
     private void LateUpdate()
     {
-        wrist.Rotate((Mathf.PerlinNoise1D(Time.time * 0.5f + _wristOffset) - 0.5f) * 40f, 0, 0);
+        wrist.Rotate(GetWristAngle());
+    }
+
+    private Vector3 GetWristAngle()
+    {
+        _pointPhase = Mathf.MoveTowards(_pointPhase, _pointing ? 1f : 0f, Time.deltaTime * (_pointing ? 5f : 2f));
+        thumb.Curl(_pointPhase);
+        index.Curl(_pointPhase);
+        var idle = new Vector3((Mathf.PerlinNoise1D(Time.time * 0.5f + _wristOffset) - 0.5f) * 40f, 0, 0);
+        return Vector3.Lerp(idle, new Vector3(45f, 10f, 0), TweenEasings.SineEaseInOut(_pointPhase));
     }
 
     private void Update ()

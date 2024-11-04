@@ -18,12 +18,22 @@ public class Board : MonoBehaviour
     
     private void Start()
     {
+        Show(contents);
+    }
+
+    public void Show(string text)
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
         AddRow();
         
-        for (var i = 0; i < contents.Length; i += 2)
+        for (var i = 0; i < text.Length; i += 2)
         {
-            var first = contents.Substring(i, 1);
-            var second = contents.Length > i + 1 ? contents.Substring(i + 1, 1) : "space";
+            var first = text.Substring(i, 1);
+            var second = text.Length > i + 1 ? text.Substring(i + 1, 1) : "space";
             var firstChar = letters.Get(first);
             var secondChar = letters.Get(second);
             var width = Mathf.Max(firstChar.offset + firstChar.width, secondChar.offset + secondChar.width);

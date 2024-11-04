@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5928499df24293ae62f5401b05b011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenName: pearl
   outline: {fileID: 2795049599495204745}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &2795049599495204745

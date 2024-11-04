@@ -10,13 +10,19 @@ public class Finger : MonoBehaviour
     
     private List<Transform> _bones;
     private Quaternion _origin;
-    private float noiseOffset;
+    private float _noiseOffset;
+    private float _curl;
 
     private void Start()
     {
         SetBones();
         _origin = transform.localRotation;
-        noiseOffset = Random.value * 1000f;
+        _noiseOffset = Random.value * 1000f;
+    }
+
+    public void Curl(float curl)
+    {
+        _curl = curl;
     }
 
     private void SetBones()
@@ -32,7 +38,9 @@ public class Finger : MonoBehaviour
 
     private void Update()
     {
-        var diff = Mathf.Clamp01(Mathf.Abs(Mathf.Sin(Time.time) + Mathf.PerlinNoise1D(Time.time * 0.3f + noiseOffset) * 1.3f - 0.7f));
-        _bones.ForEach(b => b.localRotation = _origin * Quaternion.Euler(diff * -90f * amount, 0f, 0f));
+        var noise = Mathf.PerlinNoise1D(Time.time * 0.3f + _noiseOffset) * 1.3f - 0.7f;
+        var diff = Mathf.Clamp01(Mathf.Abs(Mathf.Sin(Time.time) + noise));
+        var angle = Vector3.Lerp(new Vector3(diff * -90f * amount, 0f, 0f), new Vector3(5f - noise * 10f, 0f, 0f), _curl);
+        _bones.ForEach(b => b.localRotation = _origin * Quaternion.Euler(angle));
     }
 }

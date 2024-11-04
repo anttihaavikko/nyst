@@ -16,6 +16,9 @@ public class Clicker : MonoBehaviour
     [SerializeField] private Transform cursorWrap;
     [SerializeField] private List<Transform> cursorLines;
 
+    [SerializeField] private Hand right;
+    [SerializeField] private HandScreen handScreen;
+
     private Clickable _prev;
 
     private void Start()
@@ -33,6 +36,7 @@ public class Clicker : MonoBehaviour
             {
                 UpdateCursor(false);
             }
+            right.Point(false);
             _prev = null;
             return;
         }
@@ -45,12 +49,18 @@ public class Clicker : MonoBehaviour
 
         if (clickable != _prev)
         {
-            UpdateCursor(clickable);   
+            UpdateCursor(clickable);
             clickable?.ToggleOutline(true);
         }
 
         _prev = clickable;
         
+        right.Point(clickable);
+        if (clickable)
+        {
+            handScreen.Show(clickable.ScreenName);
+        }
+
         if (!Input.GetMouseButtonDown(0)) return;
         
         if (clickable)

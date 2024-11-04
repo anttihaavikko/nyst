@@ -3,8 +3,12 @@ using UnityEngine.Serialization;
 
 public abstract class Clickable : MonoBehaviour
 {
+    [SerializeField] private string screenName;
     [SerializeField] private Outline outline;
+    
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
+
+    public string ScreenName => screenName;
 
     public void ToggleOutline(bool state)
     {

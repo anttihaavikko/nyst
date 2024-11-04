@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8febf774124b4d87b4b330adf3c9f2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenName: button
   outline: {fileID: 6268742422041104169}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable: {fileID: 0}

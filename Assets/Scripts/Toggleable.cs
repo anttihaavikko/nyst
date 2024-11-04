@@ -11,6 +11,7 @@ public class Toggleable : MonoBehaviour
     
     private void Start()
     {
+        if (!normal) return;
         _originalPosition = normal.position;
         _originalScale = normal.localScale;
         _originalRotation = normal.rotation;
@@ -21,7 +22,7 @@ public class Toggleable : MonoBehaviour
         ToggleTo(!_state);
     }
 
-    public void ToggleTo(bool state)
+    public virtual void ToggleTo(bool state)
     {
         _state = state;
         Tweener.MoveToBounceOut(normal, _state ? toggled.position : _originalPosition, 0.5f);

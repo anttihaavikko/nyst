@@ -6,6 +6,7 @@ public class PanelButton : Clickable
 {
     [SerializeField] private Toggleable toggleable;
     [SerializeField] private bool correct;
+    [SerializeField] private bool blinks;
     
     private bool _state;
     private MeshRenderer _meshRenderer;
@@ -31,6 +32,15 @@ public class PanelButton : Clickable
         // _meshRenderer.material.EnableKeyword("_EMISSION");
         _panel?.Check();
         toggleable?.ToggleTo(_state);
+
+        if (blinks)
+        {
+            this.StartCoroutine(() =>
+            {
+                _meshRenderer.material.SetColor(BaseColor, buttonOffColor);
+                Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_start), 0.2f);
+            }, 0.2f);
+        }
     }
 
     private Color GetColor()
