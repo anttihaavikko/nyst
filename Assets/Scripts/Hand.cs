@@ -20,6 +20,9 @@ public class Hand : MonoBehaviour
     private float _wristOffset;
     private bool _pointing;
     private float _pointPhase;
+    private float _lifSpeed;
+    private float _drop;
+    private bool _wasGrounded;
     
     private const float Speed = 3f;
 
@@ -55,6 +58,7 @@ public class Hand : MonoBehaviour
 
     private void Update ()
     {
+        if (!_wasGrounded && firstPersonController.Grounded) _drop = Mathf.PI;
         var fall = firstPersonController.Grounded ? 0 : -firstPersonController.VerticalVelocity;
         _lift = Mathf.MoveTowards(_lift, fall * 0.5f, Time.deltaTime * (firstPersonController.Grounded ? 20f : 10f));
         var moving = input.move.magnitude > 0;
@@ -66,6 +70,9 @@ public class Hand : MonoBehaviour
         var phase = _time * 0.75f * Speed + Mathf.PI + phaseOffset;
         var diff = Mathf.Lerp(0, Mathf.Abs(Mathf.Sin(phase)) - 0.5f, _delta);
         var dir = Mathf.PerlinNoise1D(_time * 0.3f + direction * 100f) * 1.5f - 0.75f + diff + _lift;
-        target.localPosition = _originalPosition + Vector3.up * dir * 0.1f;
+        var drop = Mathf.Sin(_drop) * 0.1f;
+        target.localPosition = _originalPosition + Vector3.up * (dir * 0.1f) + Vector3.down * drop + Vector3.forward * (drop * 0.5f);
+        _wasGrounded = firstPersonController.Grounded;
+        _drop = Mathf.MoveTowards(_drop, 0, Time.deltaTime * 5f);
     }
 }
