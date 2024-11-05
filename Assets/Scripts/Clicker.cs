@@ -65,7 +65,7 @@ public class Clicker : MonoBehaviour
         
         if (clickable)
         {
-            right.Push();
+            right.Push(clickable.PointDelay);
             clickable.Click();
         }
     }

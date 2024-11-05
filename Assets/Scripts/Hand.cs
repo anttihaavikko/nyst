@@ -23,6 +23,7 @@ public class Hand : MonoBehaviour
     private float _lifSpeed;
     private float _drop;
     private bool _wasGrounded;
+    private float _pointDelay;
     
     private const float Speed = 3f;
 
@@ -36,8 +37,9 @@ public class Hand : MonoBehaviour
         _pointing = state;
     }
 
-    public void Push()
+    public void Push(float delay = 0)
     {
+        _pointDelay = delay;
         _pointPhase = 0.25f;
     }
 
@@ -48,7 +50,7 @@ public class Hand : MonoBehaviour
 
     private Vector3 GetWristAngle()
     {
-        var isPointing = _pointing || direction > 0 && Input.GetMouseButton(1);
+        var isPointing = _pointing || _pointDelay > 0 || direction > 0 && Input.GetMouseButton(1);
         _pointPhase = Mathf.MoveTowards(_pointPhase, isPointing ? 1f : 0f, Time.deltaTime * (isPointing ? 5f : 2f));
         thumb.Curl(_pointPhase);
         index.Curl(_pointPhase);
@@ -58,6 +60,7 @@ public class Hand : MonoBehaviour
 
     private void Update ()
     {
+        _pointDelay = Mathf.MoveTowards(_pointDelay, 0, Time.deltaTime);
         if (!_wasGrounded && firstPersonController.Grounded) _drop = Mathf.PI;
         var fall = firstPersonController.Grounded ? 0 : -firstPersonController.VerticalVelocity;
         _lift = Mathf.MoveTowards(_lift, fall * 0.5f, Time.deltaTime * (firstPersonController.Grounded ? 20f : 10f));

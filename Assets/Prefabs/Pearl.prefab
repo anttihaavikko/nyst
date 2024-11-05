@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: pearl
   outline: {fileID: 2795049599495204745}
+  pointDelay: 0.3
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &2795049599495204745
 MonoBehaviour:
