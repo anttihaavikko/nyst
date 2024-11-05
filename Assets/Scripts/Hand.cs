@@ -64,7 +64,7 @@ public class Hand : MonoBehaviour
         var moving = input.move.magnitude > 0;
         var running = moving && input.sprint;
         var speed = running ? 1.5f : 1f;
-        _delta = Mathf.MoveTowards(_delta, moving ? speed : 0f, Time.deltaTime);
+        _delta = Mathf.MoveTowards(_delta, moving ? speed : 0f, Time.deltaTime * 5f);
         var phaseOffset = moving && direction < 0 ? Mathf.PI * 0.5f : 0;
         _time += Time.deltaTime * speed;
         var phase = _time * 0.75f * Speed + Mathf.PI + phaseOffset;
