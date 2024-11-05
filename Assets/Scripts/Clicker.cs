@@ -19,6 +19,8 @@ public class Clicker : MonoBehaviour
     [SerializeField] private Hand right;
     [SerializeField] private HandScreen handScreen;
 
+    [SerializeField] private Inventory inventory;
+
     private Clickable _prev;
 
     private void Start()
@@ -47,6 +49,11 @@ public class Clicker : MonoBehaviour
         
         var clickable = target.collider.GetComponent<Clickable>();
 
+        if (clickable && !clickable.CanInteract(inventory))
+        {
+            clickable = null;
+        }
+
         if (clickable != _prev)
         {
             UpdateCursor(clickable);
@@ -66,7 +73,7 @@ public class Clicker : MonoBehaviour
         if (clickable)
         {
             right.Push(clickable.PointDelay);
-            clickable.Click();
+            clickable.Click(inventory);
         }
     }
 

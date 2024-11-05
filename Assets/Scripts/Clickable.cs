@@ -22,5 +22,10 @@ public abstract class Clickable : MonoBehaviour
         }
     }
 
-    public abstract void Click();
+    public abstract void Click(Inventory inventory);
+
+    public virtual bool CanInteract(Inventory inventory)
+    {
+        return true;
+    }
 }

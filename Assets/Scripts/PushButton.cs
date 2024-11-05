@@ -26,7 +26,7 @@ public class PushButton : Clickable
         _start = transform.localPosition.x;
     }
 
-    public override void Click()
+    public override void Click(Inventory inventory)
     {
         _state = !_state;
         Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_state ? _start * 0.5f : _start), 0.2f);
