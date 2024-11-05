@@ -1,9 +1,12 @@
+using System;
 using AnttiStarterKit.Animations;
 using UnityEngine;
 
 public class Toggleable : Activatable
 {
     [SerializeField] private Transform normal, toggled;
+    [SerializeField] private float duration = 0.5f;
+    [SerializeField] private bool bounces = true;
 
     private bool _state;
     private Vector3 _originalPosition, _originalScale;
@@ -17,17 +20,23 @@ public class Toggleable : Activatable
         _originalRotation = normal.rotation;
     }
 
-    public void Toggle()
+    private void Toggle()
     {
         ToggleTo(!_state);
     }
 
-    public virtual void ToggleTo(bool state)
+    private void ToggleTo(bool state)
     {
         _state = state;
-        Tweener.MoveToBounceOut(normal, _state ? toggled.position : _originalPosition, 0.5f);
-        Tweener.ScaleToBounceOut(normal, _state ? toggled.localScale : _originalScale, 0.5f);
-        Tweener.RotateToBounceOut(normal, _state ? toggled.rotation : _originalRotation, 0.5f);
+        var easeFunc = GetEase();
+        Tweener.MoveTo(normal, _state ? toggled.position : _originalPosition, duration, easeFunc);
+        Tweener.ScaleTo(normal, _state ? toggled.localScale : _originalScale, duration, easeFunc);
+        Tweener.Instance.RotateTo(normal, _state ? toggled.rotation : _originalRotation, duration, 0, easeFunc);
+    }
+
+    private Func<float, float> GetEase()
+    {
+        return bounces ? TweenEasings.BounceEaseOut : TweenEasings.QuadraticEaseInOut;
     }
 
     public override void Activate()
