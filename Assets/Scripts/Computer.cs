@@ -44,7 +44,7 @@ public class Computer : MonoBehaviour
 
     private void Append(string letter)
     {
-        if (_text.Length >= 50) return;
+        if (_text.Length >= 72) return;
         _text += letter;
         board.Show(_text);
     }
