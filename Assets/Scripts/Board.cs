@@ -38,6 +38,8 @@ public class Board : MonoBehaviour
             var secondChar = letters.Get(second);
             var width = Mathf.Max(firstChar.offset + firstChar.width, secondChar.offset + secondChar.width);
             var special = GetSpecial(first, second);
+
+            if (first == "\n") AddRow();
             
             if (_rowWidth + width > rowWidth) AddRow();
             _rowWidth += width;

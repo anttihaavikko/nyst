@@ -1,6 +1,7 @@
 using System;
 using AnttiStarterKit.Extensions;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Pearl : MonoBehaviour
 {
@@ -29,9 +30,10 @@ public class Pearl : MonoBehaviour
     {
         if (other.CompareTag("Kill"))
         {
-            transform.position = _respawn.RandomOffset(0.2f);
+            transform.position = _respawn;
             rigidBody.linearVelocity = Vector3.zero;
             rigidBody.angularVelocity = Vector3.zero;
+            rigidBody.AddForce(new Vector3(Random.value - 0.5f, Random.value - 0.5f, Random.value - 0.5f) * 10f, ForceMode.Impulse);
         }
     }
 }
