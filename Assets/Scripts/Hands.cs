@@ -29,13 +29,6 @@ public class Hands : MonoBehaviour
 
         if (_state)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                var p = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
-                Debug.Log(p);
-                // if(p.x is > 0.35f and < 0.4f && p.y is > 0.5f and < 0.55f) ChangeOption(1);
-            }
-            
             if (inputs.move.y > 0.2f || Input.mouseScrollDelta.y > 0f) ChangeOption(1);
             if (inputs.move.y < -0.2f || Input.mouseScrollDelta.y < 0f) ChangeOption(-1);
             if (Mathf.Abs(inputs.move.y) < 0.2f) _canChange = true;
