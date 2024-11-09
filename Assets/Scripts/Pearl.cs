@@ -12,8 +12,8 @@ public class Pearl : MonoBehaviour
     public void Throw(Vector3 dir, Vector3 respawn)
     {
         _respawn = respawn;
+        rigidBody.isKinematic = false;
         rigidBody.AddForce(dir, ForceMode.Impulse);
-        rigidBody.useGravity = true;
         this.StartCoroutine(() => clickable.enabled = true, 1f);
     }
 

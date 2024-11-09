@@ -21,6 +21,7 @@ public class Hands : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Transform launchBar;
     [SerializeField] private Transform pearlRespawn;
+    [SerializeField] private Inventory inventory;
 
     private float _launchSpeed;
     private Pearl _spawned;
@@ -42,7 +43,7 @@ public class Hands : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Return)) options[_screenOption].Act();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && inventory.Pearls > 0)
         {
             if (!_spawned)
             {
@@ -61,6 +62,8 @@ public class Hands : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
         {
             _spawned.Throw(cam.transform.forward * (150f * _launchSpeed), pearlRespawn.position);
+            inventory.Pearls--;
+            inventory.UpdateCounts();
             _launchSpeed = 0;
             _spawned = null;
         }
@@ -73,7 +76,8 @@ public class Hands : MonoBehaviour
     {
         if (_spawned)
         {
-            _spawned.transform.position = launchSpot.position;
+            var speed = Vector3.Distance(_spawned.transform.position, launchSpot.position) * Time.deltaTime * 5f;
+            _spawned.transform.position = Vector3.MoveTowards(_spawned.transform.position, launchSpot.position, speed);
         }
     }
 

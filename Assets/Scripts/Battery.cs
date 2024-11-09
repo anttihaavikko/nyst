@@ -19,6 +19,7 @@ public class Battery : Clickable
     public override void Click(Inventory inventory)
     {
         inventory.Batteries += visible ? 1 : -1;
+        inventory.UpdateCounts();
         visible = !visible;
         _mesh.material = visible ? _normal : invisible;
     }
