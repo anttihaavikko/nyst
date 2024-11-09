@@ -10,12 +10,12 @@ using UnityEngine.UI;
 public class Hands : MonoBehaviour
 {
     [SerializeField] private Animator left, right;
-    [SerializeField] private List<RevertableTransform> revertables;
-    [SerializeField] private TMP_Text screen;
-    [SerializeField] private List<string> options;
+    // [SerializeField] private List<RevertableTransform> revertables;
+    [SerializeField] private List<MenuOption> options;
     [SerializeField] private List<GameObject> arrows;
     [SerializeField] private StarterAssetsInputs inputs;
     [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private GameObject cursor;
 
     private bool _state;
     private int _screenOption;
@@ -32,6 +32,7 @@ public class Hands : MonoBehaviour
             if (inputs.move.y > 0.2f || Input.mouseScrollDelta.y > 0f) ChangeOption(1);
             if (inputs.move.y < -0.2f || Input.mouseScrollDelta.y < 0f) ChangeOption(-1);
             if (Mathf.Abs(inputs.move.y) < 0.2f) _canChange = true;
+            if(Input.GetKeyDown(KeyCode.Return)) options[_screenOption].Act();
         }
     }
     
@@ -44,30 +45,32 @@ public class Hands : MonoBehaviour
     {
         if (!_canChange) return;
         _canChange = false;
+        options[_screenOption].gameObject.SetActive(false);
         _screenOption = (_screenOption + dir).LoopAround(0, options.Count);
-        screen.text = options[_screenOption];
+        options[_screenOption].gameObject.SetActive(true);
         this.StartCoroutine(() => _canChange = true, 0.3f);
     }
 
-    private void Toggle()
+    public void Toggle()
     {
         _state = !_state;
         SetCursorState(!_state);
         inputs.Locked = _state;
         firstPersonController.Locked = _state;
+        cursor.SetActive(!_state);
 
         if (_state)
         {
             inputs.move = inputs.look = Vector2.zero;
         }
         
-        if(_state) revertables.ForEach(r => r.Snap());
-        else revertables.ForEach(r => r.Revert());
+        // if(_state) revertables.ForEach(r => r.Snap());
+        // else revertables.ForEach(r => r.Revert());
         
         left.SetBool(ShowAnim, _state);
         right.SetBool(GrabAnim, _state);
 
-        screen.text = _state ? options[_screenOption] : "";
+        options[_screenOption].gameObject.SetActive(_state);
         arrows.ForEach(a => a.SetActive(_state));
     }
 }
