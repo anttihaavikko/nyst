@@ -17,6 +17,14 @@ public class Pearl : MonoBehaviour
         this.StartCoroutine(() => clickable.enabled = true, 1f);
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Target")
+        {
+            other.gameObject.GetComponent<PearlTarget>()?.Hit(rigidBody.linearVelocity, other.contacts[0].point);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Kill"))

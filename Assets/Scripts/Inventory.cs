@@ -1,5 +1,6 @@
 using System;
 using AnttiStarterKit.Extensions;
+using AnttiStarterKit.Utils;
 using TMPro;
 using UnityEngine;
 
@@ -23,6 +24,12 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         ui.SetActive(_visible || Input.GetMouseButton(1));
+
+        if (DevKey.Down(KeyCode.Q))
+        {
+            Pearls++;
+            UpdateCounts();
+        }
     }
 
     public void UpdateCounts()
