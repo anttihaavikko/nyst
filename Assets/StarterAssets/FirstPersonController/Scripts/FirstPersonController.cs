@@ -75,6 +75,8 @@ namespace StarterAssets
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.001f;
+		
+		public bool Locked { get; set; }
 
 		private bool IsCurrentDeviceMouse
 		{
@@ -133,6 +135,8 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			if (Locked) return;
+			
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{
@@ -155,6 +159,7 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			if (Locked) return;
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 

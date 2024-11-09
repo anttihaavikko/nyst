@@ -64,7 +64,7 @@ public class Hand : MonoBehaviour
         if (!_wasGrounded && firstPersonController.Grounded) _drop = Mathf.PI;
         var fall = firstPersonController.Grounded ? 0 : -firstPersonController.VerticalVelocity;
         _lift = Mathf.MoveTowards(_lift, fall * 0.5f, Time.deltaTime * (firstPersonController.Grounded ? 20f : 10f));
-        var moving = input.move.magnitude > 0;
+        var moving = input.move.magnitude > 0 && !input.Locked;
         var running = moving && input.sprint;
         var speed = running ? 1.5f : 1f;
         _delta = Mathf.MoveTowards(_delta, moving ? speed : 0f, Time.deltaTime * 5f);
