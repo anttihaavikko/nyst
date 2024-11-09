@@ -48,6 +48,7 @@ public class Clicker : MonoBehaviour
         // Debug.Log($"Pointing at {target.collider.name}");
         
         var clickable = target.collider.GetComponent<Clickable>();
+        if (clickable && !clickable.enabled) clickable = null;
 
         if (clickable && !clickable.CanInteract(inventory))
         {

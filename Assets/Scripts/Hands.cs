@@ -16,7 +16,14 @@ public class Hands : MonoBehaviour
     [SerializeField] private StarterAssetsInputs inputs;
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private GameObject cursor;
+    [SerializeField] private Transform launchSpot;
+    [SerializeField] private Pearl pearlPrefab;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Transform launchBar;
+    [SerializeField] private Transform pearlRespawn;
 
+    private float _launchSpeed;
+    private Pearl _spawned;
     private bool _state;
     private int _screenOption;
     private bool _canChange = true;
@@ -34,8 +41,42 @@ public class Hands : MonoBehaviour
             if (Mathf.Abs(inputs.move.y) < 0.2f) _canChange = true;
             if(Input.GetKeyDown(KeyCode.Return)) options[_screenOption].Act();
         }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!_spawned)
+            {
+                _spawned = Instantiate(pearlPrefab, launchSpot.position, Quaternion.identity);
+                _spawned.GetComponent<Clickable>().enabled = false;
+            }
+
+            _spawned.gameObject.SetActive(true);
+        }
+        
+        if(Input.GetMouseButtonUp(1) && _spawned)
+        {
+            _spawned.gameObject.SetActive(false);
+        }
+
+        if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
+        {
+            _spawned.Throw(cam.transform.forward * (150f * _launchSpeed), pearlRespawn.position);
+            _launchSpeed = 0;
+            _spawned = null;
+        }
+
+        _launchSpeed = Mathf.MoveTowards(_launchSpeed, Input.GetMouseButton(1) && _spawned ? 1f : 0f, Time.deltaTime);
+        launchBar.transform.localScale = new Vector3(_launchSpeed, 1, 1);
     }
-    
+
+    private void LateUpdate()
+    {
+        if (_spawned)
+        {
+            _spawned.transform.position = launchSpot.position;
+        }
+    }
+
     private void SetCursorState(bool newState)
     {
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
