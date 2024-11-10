@@ -68705,18 +68705,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2021188531}
     m_Modifications:
-    - target: {fileID: 1467607426057574333, guid: 79d56d209e1b64e2880bcb05d289294a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: ebf0d1ad366834ac7a4452467a87398e, type: 2}
     - target: {fileID: 4944737101736829771, guid: 79d56d209e1b64e2880bcb05d289294a, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 326580000}
-    - target: {fileID: 6614861310372751724, guid: 79d56d209e1b64e2880bcb05d289294a, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: ebf0d1ad366834ac7a4452467a87398e, type: 2}
     - target: {fileID: 8641850564874440947, guid: 79d56d209e1b64e2880bcb05d289294a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

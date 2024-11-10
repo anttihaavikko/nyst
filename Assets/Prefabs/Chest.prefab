@@ -782,7 +782,7 @@ PrefabInstance:
       propertyPath: contents
       value: 'lost
 
-        pearls
+        pearl
 
         return'
       objectReference: {fileID: 0}
@@ -872,6 +872,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6077597386851819916, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ebf0d1ad366834ac7a4452467a87398e, type: 2}
     - target: {fileID: -5438583605291355801, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -884,6 +888,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.55
       objectReference: {fileID: 0}
+    - target: {fileID: -2001496963424984923, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ebf0d1ad366834ac7a4452467a87398e, type: 2}
     - target: {fileID: -1439730007547781893, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

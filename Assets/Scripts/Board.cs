@@ -32,20 +32,27 @@ public class Board : MonoBehaviour
         
         for (var i = 0; i < text.Length; i += 2)
         {
+            if (text.Substring(i, 1) == "\n")
+            {
+                AddRow();
+                i--;
+                continue;
+            }
+            
             var first = text.Substring(i, 1);
             var second = text.Length > i + 1 ? text.Substring(i + 1, 1) : "space";
             var firstChar = letters.Get(first);
             var secondChar = letters.Get(second);
             var width = Mathf.Max(firstChar.offset + firstChar.width, secondChar.offset + secondChar.width);
             var special = GetSpecial(first, second);
-
-            if (first == "\n") AddRow();
             
             if (_rowWidth + width > rowWidth) AddRow();
             _rowWidth += width;
             
             var character = Instantiate(characterPrefab, _row);
             character.Setup(firstChar, secondChar, letters.Get(special), color);
+            
+            if (second == "\n") AddRow();
         }
     }
 
