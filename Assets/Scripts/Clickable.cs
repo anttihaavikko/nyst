@@ -6,6 +6,7 @@ public abstract class Clickable : MonoBehaviour
     [SerializeField] private string screenName;
     [SerializeField] private Outline outline;
     [SerializeField] private float pointDelay;
+    [SerializeField] private bool locked;
     
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
 
@@ -26,6 +27,11 @@ public abstract class Clickable : MonoBehaviour
 
     public virtual bool CanInteract(Inventory inventory)
     {
-        return true;
+        return !locked;
+    }
+
+    public void OpenLock()
+    {
+        locked = false;
     }
 }
