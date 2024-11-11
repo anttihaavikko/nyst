@@ -8,8 +8,19 @@ public class Lock : Clickable
 
     public override void Click(Inventory inventory)
     {
+        if (!CanInteract(inventory)) return;
         toggleable.ForEach(t => t.Activate());
         opens.OpenLock();
         enabled = false;
-    }      
+        if (locked)
+        {
+            inventory.Keys--;
+            inventory.UpdateCounts();
+        }
+    }
+    
+    public override bool CanInteract(Inventory inventory)
+    {
+        return !locked || inventory.Keys > 0;
+    }
 }

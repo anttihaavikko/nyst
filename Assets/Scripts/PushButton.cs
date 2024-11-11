@@ -17,6 +17,7 @@ public class PushButton : Clickable
     private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
 
     public bool IsOk => _state == correct;
+    public bool IsInverted => _state != correct;
 
     private void Start()
     {

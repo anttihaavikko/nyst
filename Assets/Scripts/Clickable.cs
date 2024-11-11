@@ -6,7 +6,7 @@ public abstract class Clickable : MonoBehaviour
     [SerializeField] private string screenName;
     [SerializeField] private Outline outline;
     [SerializeField] private float pointDelay;
-    [SerializeField] private bool locked;
+    [SerializeField] protected bool locked;
     
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
 

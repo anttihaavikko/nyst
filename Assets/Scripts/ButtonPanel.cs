@@ -8,6 +8,7 @@ using UnityEngine;
 public class ButtonPanel : MonoBehaviour
 {
     [SerializeField] private Vector3 rotation;
+    [SerializeField] private Activator secondary;
 
     private Activator _activator;
     private PushButton[] _buttons;
@@ -22,6 +23,12 @@ public class ButtonPanel : MonoBehaviour
 
     public void Check()
     {
+        if (_done && secondary && _buttons.All(b => b.IsInverted))
+        {
+            secondary.Activate();
+            secondary = null;
+        }
+        
         if (_done || !_buttons.All(b => b.IsOk)) return;
         const float duration = 0.6f;
         _done = true;
