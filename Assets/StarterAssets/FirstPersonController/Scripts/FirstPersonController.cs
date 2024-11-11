@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -65,6 +66,8 @@ namespace StarterAssets
 		private float _fallTimeoutDelta;
 		
 		public float VerticalVelocity => _verticalVelocity;
+		
+		public Action Jumped { get; set; }
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -119,6 +122,12 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+		}
+
+		public void SetPosition(Vector3 target)
+		{
+			var dir = transform.InverseTransformDirection(target - transform.position);
+			_controller.Move(dir);
 		}
 
 		private void LateUpdate()
@@ -221,6 +230,7 @@ namespace StarterAssets
 				// Jump
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
+					Jumped?.Invoke();
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 				}
