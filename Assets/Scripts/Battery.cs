@@ -9,6 +9,8 @@ public class Battery : Clickable
     private MeshRenderer _mesh;
     private Material _normal;
 
+    public bool IsPlaced => visible;
+
     private void Start()
     {
         _mesh = GetComponent<MeshRenderer>();

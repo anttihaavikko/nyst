@@ -74,7 +74,7 @@ public class Clicker : MonoBehaviour
         if (clickable)
         {
             right.Push(clickable.PointDelay);
-            clickable.Click(inventory);
+            if(clickable.IsPowered) clickable.Click(inventory);
         }
     }
 

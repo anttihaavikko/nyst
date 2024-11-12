@@ -190,6 +190,8 @@ MonoBehaviour:
   screenName: battery
   outline: {fileID: 3993592159747311889}
   pointDelay: 0
+  locked: 0
+  poweredBy: []
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -380,6 +382,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1595983033178105731}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4879114760274232553}
     - targetCorrespondingSourceObject: {fileID: 451344082945699629, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3442105771619757811}
@@ -427,6 +432,8 @@ MonoBehaviour:
   screenName: battery
   outline: {fileID: 5755820179389640684}
   pointDelay: 0
+  locked: 0
+  poweredBy: []
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -565,6 +572,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.18, y: 0.21, z: 0.81}
   m_Center: {x: 0, y: -0.91, z: 0}
+--- !u!114 &4879114760274232553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505331633195364847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5b2b7c97704e01a5385a400c51f364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteries:
+  - {fileID: 3442105771619757811}
+  - {fileID: 4265057414150624673}
 --- !u!1 &4974076225262383585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -630440824705417889, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
@@ -601,6 +623,8 @@ MonoBehaviour:
   screenName: door
   outline: {fileID: 4474815727362690486}
   pointDelay: 0
+  locked: 0
+  poweredBy: []
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &4474815727362690486
 MonoBehaviour:

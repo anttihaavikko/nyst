@@ -19650,6 +19650,14 @@ PrefabInstance:
       propertyPath: toggleable
       value: 
       objectReference: {fileID: 554277978}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: poweredBy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'poweredBy.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2508752252308997129}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
       value: top button
@@ -49355,6 +49363,14 @@ PrefabInstance:
       propertyPath: toggleable
       value: 
       objectReference: {fileID: 1705461556}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: poweredBy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'poweredBy.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2508752252308997129}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
       value: middle button
@@ -52085,6 +52101,14 @@ PrefabInstance:
       propertyPath: toggleable
       value: 
       objectReference: {fileID: 1078393886}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: poweredBy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476159401701504021, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
+      propertyPath: 'poweredBy.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2508752252308997129}
     - target: {fileID: 6690567664278167898, guid: 68bf2775ea4144204b01b1827429ffd9, type: 3}
       propertyPath: m_Name
       value: bottom button
@@ -68903,6 +68927,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624c9bedddf7946f8a7a148ede39ace4, type: 3}
+--- !u!114 &2508752252308997129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4879114760274232553, guid: 624c9bedddf7946f8a7a148ede39ace4, type: 3}
+  m_PrefabInstance: {fileID: 2508752252308997128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5b2b7c97704e01a5385a400c51f364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2537730297405449996
 GameObject:
   m_ObjectHideFlags: 0
