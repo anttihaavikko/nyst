@@ -65,7 +65,7 @@ public class Board : MonoBehaviour
             TextAnchor.MiddleLeft;
     }
 
-    private static string GetSpecial(string first, string second)
+    public static string GetSpecial(string first, string second)
     {
         return string.CompareOrdinal(first, second) switch
         {

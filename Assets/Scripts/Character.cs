@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,5 +15,10 @@ public class Character : MonoBehaviour
         second.sprite = b.sprite;
         special.sprite = c.sprite;
         first.color = second.color = special.color = color;
+    }
+
+    public void Setup(List<LetterDefinition> letters, Color color)
+    {
+        Setup(letters[0], letters[1], letters[2], color);
     }
 }
