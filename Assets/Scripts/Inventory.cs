@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
 {
     [SerializeField] private TMP_Text pearls, keys, batteries;
     [SerializeField] private GameObject ui;
+    [SerializeField] private HintBoard hintBoard;
 
     private bool _visible;
     
@@ -38,5 +39,6 @@ public class Inventory : MonoBehaviour
         pearls.text = Pearls.ToString();
         batteries.text = Batteries.ToString();
         ShowCounts();
+        hintBoard.UpdatePearls(this);
     }
 }
