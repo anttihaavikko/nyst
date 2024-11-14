@@ -22,6 +22,8 @@ namespace AnttiStarterKit.Animations
 		public int customEasing;
 		public Type type;
 		public System.Func<float, float> easeFunction;
+		public Rigidbody body;
+		public bool isPhysics;
 
 		private bool hasBeenInit;
 
@@ -49,7 +51,8 @@ namespace AnttiStarterKit.Animations
 			}
 		}
 
-		public float DoEase() {
+		public float DoEase()
+		{
 			if (customEasing >= 0) {
 				return Tweener.Instance.customEasings[customEasing].Evaluate (tweenPos);
 			} else {
@@ -98,18 +101,27 @@ namespace AnttiStarterKit.Animations
 				return true;
 			}
 
+			var delta = isPhysics ? Time.fixedDeltaTime : Time.deltaTime;
+
 			if (!hasBeenInit)
 				return false;
 
 			if (tweenDelay > 0f) {
 
-				tweenDelay -= Time.deltaTime;
+				tweenDelay -= delta;
 
 			} else {
-				tweenPos += Time.deltaTime / tweenDuration;
+				tweenPos += delta / tweenDuration;
 
 				if (type == Type.Position) {
-					theObject.position = Lerp (startPos, targetPos, DoEase ());
+					if (body)
+					{
+						body.position = Lerp (startPos, targetPos, DoEase ());
+					}
+					else
+					{
+						theObject.position = Lerp (startPos, targetPos, DoEase ());	
+					}
 				}
 
 				if (type == Type.LocalPosition) {
@@ -130,6 +142,13 @@ namespace AnttiStarterKit.Animations
 			}
 
 			return (tweenPos >= 1f);
+		}
+
+		public void InitPhysics()
+		{
+			body = theObject.GetComponent<Rigidbody>();
+			isPhysics = body;
+			if (isPhysics) startPos = body.position;
 		}
 	}
 }

@@ -29,7 +29,7 @@ public class HintBoard : MonoBehaviour
 
     public void UpdatePearls(Inventory inventory)
     {
-        if (inventory.Pearls < _prevCount) return;
+        if (inventory.Pearls <= _prevCount) return;
 
         var index = inventory.Pearls - 1;
         if (index >= _indices.Count) return;

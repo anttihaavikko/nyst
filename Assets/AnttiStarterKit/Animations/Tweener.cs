@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AnttiStarterKit.Animations
@@ -39,13 +40,23 @@ namespace AnttiStarterKit.Animations
 			Process();
 		}
 
+		private void FixedUpdate()
+		{
+			Process(_actions.Where(a => a.isPhysics).ToList());
+		}
+
 		private void Process()
 		{
-			for (var i = _actions.Count - 1; i >= 0; i--)
+			Process(_actions.Where(a => !a.isPhysics).ToList());
+		}
+		
+		private void Process(List<TweenAction> list)
+		{
+			for (var i = list.Count - 1; i >= 0; i--)
 			{
-				if (_actions[i].Process())
+				if (list[i].Process())
 				{
-					_actions.RemoveAt(i);
+					_actions.Remove(list[i]);
 				}
 			}
 		}
@@ -99,6 +110,7 @@ namespace AnttiStarterKit.Animations
 			ease ??= TweenEasings.LinearInterpolation;
 			var act = AddTween (obj, target, TweenAction.Type.Position, duration, delay, ease, easeIndex, removeOld);
 			act.startPos = act.theObject.position;
+			act.InitPhysics();
 			StartCoroutine(act.SetStartPos());
 		}
 
