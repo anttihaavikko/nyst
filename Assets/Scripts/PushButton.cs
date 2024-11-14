@@ -18,6 +18,7 @@ public class PushButton : Clickable
 
     public bool IsOk => _state == correct;
     public bool IsInverted => _state != correct;
+    public bool GetState => _state;
 
     private void Start()
     {
@@ -39,12 +40,15 @@ public class PushButton : Clickable
 
         if (blinks)
         {
-            this.StartCoroutine(() =>
-            {
-                _meshRenderer.material.SetColor(BaseColor, buttonOffColor);
-                Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_start), 0.2f);
-            }, 0.2f);
+            this.StartCoroutine(Reset, 0.2f);
         }
+    }
+
+    public void Reset()
+    {
+        _state = false;
+        _meshRenderer.material.SetColor(BaseColor, buttonOffColor);
+        Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_start), 0.2f);
     }
 
     private Color GetColor()
