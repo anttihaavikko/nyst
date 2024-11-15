@@ -126,6 +126,8 @@ MonoBehaviour:
   outline: {fileID: 2247209730176806492}
   pointDelay: 0
   locked: 0
+  poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable: []
   opens: {fileID: 6000745156152579601}
@@ -360,6 +362,8 @@ MonoBehaviour:
   outline: {fileID: 6327833209350375966}
   pointDelay: 0
   locked: 0
+  poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &6327833209350375966
 MonoBehaviour:
@@ -1022,6 +1026,8 @@ MonoBehaviour:
   outline: {fileID: 1228591646827355645}
   pointDelay: 0
   locked: 0
+  poweredBy: []
+  clickEffect: 1
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable:
   - {fileID: 4364749411389808254}
@@ -1103,6 +1109,8 @@ MonoBehaviour:
   outline: {fileID: 1991038255905605991}
   pointDelay: 0
   locked: 1
+  poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &1991038255905605991
 MonoBehaviour:

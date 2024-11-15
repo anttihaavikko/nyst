@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.Managers;
 using AnttiStarterKit.Utils;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -73,6 +74,7 @@ public class Clicker : MonoBehaviour
         
         if (clickable)
         {
+            EffectManager.AddEffect(clickable.ClickEffect, hits[0].point - ray.direction * 0.25f);
             right.Push(clickable.PointDelay);
             if(clickable.IsPowered) clickable.Click(inventory);
         }

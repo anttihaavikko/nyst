@@ -102,6 +102,9 @@ MonoBehaviour:
   screenName: battery
   outline: {fileID: 6934812350572859451}
   pointDelay: 0.3
+  locked: 0
+  poweredBy: []
+  clickEffect: 1
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   type: 1
 --- !u!114 &6934812350572859451

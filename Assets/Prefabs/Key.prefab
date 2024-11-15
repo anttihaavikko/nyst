@@ -124,6 +124,8 @@ MonoBehaviour:
   outline: {fileID: 3992823203068199026}
   pointDelay: 0
   locked: 0
+  poweredBy: []
+  clickEffect: 1
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   type: 2
 --- !u!114 &3992823203068199026

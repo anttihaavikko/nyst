@@ -10,10 +10,12 @@ public abstract class Clickable : MonoBehaviour
     [SerializeField] private float pointDelay;
     [SerializeField] protected bool locked;
     [SerializeField] private List<BatteryBox> poweredBy;
+    [SerializeField] private int clickEffect;
     
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
 
     public float PointDelay => pointDelay;
+    public int ClickEffect => clickEffect;
 
     public string ScreenName => screenName;
 

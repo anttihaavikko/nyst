@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AnttiStarterKit.Extensions;
+using AnttiStarterKit.Managers;
 using AnttiStarterKit.Utils;
 using StarterAssets;
 using TMPro;
@@ -52,11 +53,13 @@ public class Hands : MonoBehaviour
             }
 
             _spawned.gameObject.SetActive(true);
+            EffectManager.AddEffect(2, _spawned.transform.position);
         }
         
         if(Input.GetMouseButtonUp(1) && _spawned)
         {
             _spawned.gameObject.SetActive(false);
+            EffectManager.AddEffect(2, _spawned.transform.position);
         }
 
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
