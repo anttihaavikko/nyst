@@ -74,4 +74,9 @@ public class Board : MonoBehaviour
             _ => "same"
         };
     }
+
+    public string GetText()
+    {
+        return contents;
+    }
 }

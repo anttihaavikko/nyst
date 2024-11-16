@@ -69,6 +69,8 @@ namespace StarterAssets
 		
 		public Action Jumped { get; set; }
 
+		public bool CanJump { get; set; } = true;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -228,7 +230,7 @@ namespace StarterAssets
 				}
 
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if (CanJump && _input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					Jumped?.Invoke();
 					// the square root of H * -2 * G = how much velocity needed to reach desired height

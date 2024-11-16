@@ -5,8 +5,14 @@ public class Computer : MonoBehaviour
 {
     [SerializeField] private Board board;
     [SerializeField] private Transform player;
+    [SerializeField] private int maxLength = 12;
 
     private string _text = "hello world!";
+
+    private void Start()
+    {
+        _text = board.GetText();
+    }
 
     private void Update()
     {
@@ -44,7 +50,7 @@ public class Computer : MonoBehaviour
 
     private void Append(string letter)
     {
-        if (_text.Length >= 72) return;
+        if (_text.Length >= maxLength) return;
         _text += letter;
         board.Show(_text);
     }
