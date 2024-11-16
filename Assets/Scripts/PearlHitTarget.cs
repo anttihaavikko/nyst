@@ -1,3 +1,4 @@
+using AnttiStarterKit.Managers;
 using UnityEngine;
 
 public class PearlHitTarget : PearlTarget
@@ -11,6 +12,7 @@ public class PearlHitTarget : PearlTarget
 
     public override void Hit(Vector3 dir, Vector3 point)
     {
+        EffectManager.AddEffect(1, point);
         _activator.Activate();
     }
 }

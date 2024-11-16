@@ -1,3 +1,4 @@
+using AnttiStarterKit.Managers;
 using UnityEngine;
 
 public class BallOpener : Clickable
@@ -10,5 +11,6 @@ public class BallOpener : Clickable
         contents.transform.parent = null;
         contents.SetActive(true);
         ball.SetActive(false);
+        EffectManager.AddEffect(1, ball.transform.position);
     }
 }
