@@ -6,6 +6,7 @@ public class PushButton : Clickable
 {
     [SerializeField] private bool correct;
     [SerializeField] private bool blinks;
+    [SerializeField] private float resetAfter = -1;
     
     private Activator _activator;
     
@@ -30,6 +31,24 @@ public class PushButton : Clickable
 
     public override void Click(Inventory inventory)
     {
+        CancelInvoke(nameof(Reset));
+        CancelInvoke(nameof(Toggle));
+        
+        Toggle();
+
+        if (blinks)
+        {
+            Invoke(nameof(Reset), 0.2f);
+        }
+
+        if (_state && resetAfter > 0)
+        {
+            Invoke(nameof(Toggle), resetAfter);
+        }
+    }
+
+    private void Toggle()
+    {
         _state = !_state;
         Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_state ? _start * 0.5f : _start), 0.2f);
         _meshRenderer.material.SetColor(BaseColor, GetColor());
@@ -37,11 +56,6 @@ public class PushButton : Clickable
         _panel?.Check();
         
         _activator?.Activate();
-
-        if (blinks)
-        {
-            this.StartCoroutine(Reset, 0.2f);
-        }
     }
 
     public void Reset()
