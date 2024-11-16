@@ -1,3 +1,4 @@
+using AnttiStarterKit.Extensions;
 using StarterAssets;
 using UnityEngine;
 
@@ -10,6 +11,6 @@ public class Teleporter : Activatable
     {
         controller.enabled = false;
         controller.transform.position = target.position;
-        controller.enabled = true;
+        this.StartCoroutine(() => controller.enabled = true, 0.1f);
     }
 }
