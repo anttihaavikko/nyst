@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3c62a61c64e6b8fb81ac647261eee, type: 3}
+  m_Name: egg
+  m_EditorClassIdentifier: 
+  rows:
+  - clip: {fileID: 8300000, guid: e2ba26c7372544016b1e12779bacc7e2, type: 3}
+    volume: 0.39
+  - clip: {fileID: 8300000, guid: 50875fb4bf5be47a38e8bf882262aa95, type: 3}
+    volume: 0.43
+  - clip: {fileID: 8300000, guid: a44caee4d634d42d0a593003b5f3ed43, type: 3}
+    volume: 0.46
+  - clip: {fileID: 8300000, guid: 6fdfaeaffac954223a86e99dfb85f0f7, type: 3}
+    volume: 0.54
+  collections: []

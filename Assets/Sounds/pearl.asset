@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows:
   - clip: {fileID: 8300000, guid: ed632a692e1c44e72877bbf3bcebc597, type: 3}
-    volume: 1
+    volume: 0.6
   - clip: {fileID: 8300000, guid: 7deb6013caa154c07b7d8a6706d17016, type: 3}
     volume: 1
   - clip: {fileID: 8300000, guid: 2ff52c1bcb65d482a898a33d22e0cddb, type: 3}

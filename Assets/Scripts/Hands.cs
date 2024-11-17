@@ -24,7 +24,7 @@ public class Hands : MonoBehaviour
     [SerializeField] private Transform launchBar;
     [SerializeField] private Transform pearlRespawn;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private SoundComposition jumpSound, landSound;
+    [SerializeField] private SoundComposition jumpSound, landSound, throwSound, spawnSound;
     [SerializeField] private Transform legPosition;
 
     private float _launchSpeed;
@@ -85,16 +85,19 @@ public class Hands : MonoBehaviour
 
             _spawned.gameObject.SetActive(true);
             EffectManager.AddEffect(2, _spawned.transform.position);
+            spawnSound?.Play(_spawned.transform.position);
         }
         
         if(Input.GetMouseButtonUp(1) && _spawned)
         {
             _spawned.gameObject.SetActive(false);
             EffectManager.AddEffect(2, _spawned.transform.position);
+            throwSound?.Play(_spawned.transform.position);
         }
 
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
         {
+            throwSound?.Play(_spawned.transform.position);
             _spawned.Throw(cam.transform.forward * (150f * _launchSpeed), pearlRespawn.position);
             inventory.RemovePearl();
             inventory.UpdateCounts();

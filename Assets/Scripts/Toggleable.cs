@@ -1,5 +1,6 @@
 using System;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.ScriptableObjects;
 using UnityEngine;
 
 public class Toggleable : Activatable
@@ -7,6 +8,7 @@ public class Toggleable : Activatable
     [SerializeField] private Transform normal, toggled;
     [SerializeField] private float duration = 0.5f;
     [SerializeField] private bool bounces = true;
+    [SerializeField] private SoundComposition sound;
 
     private bool _state;
     private Vector3 _originalPosition, _originalScale;
@@ -27,6 +29,7 @@ public class Toggleable : Activatable
 
     private void ToggleTo(bool state)
     {
+        sound?.Play(transform.position);
         _state = state;
         var easeFunc = GetEase();
         Tweener.MoveTo(normal, _state ? toggled.position : _originalPosition, duration, easeFunc);

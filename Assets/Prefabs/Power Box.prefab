@@ -619,6 +619,7 @@ MonoBehaviour:
   toggled: {fileID: 8507689502211123037}
   duration: 0.5
   bounces: 1
+  sound: {fileID: 0}
 --- !u!114 &6211660986218535256
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ namespace Editor
         private Texture2D _black;
         private string _filter = "";
 
+        private Vector3 SoundPos => Camera.main.transform.position;
+
         private static Texture2D MakeTex(int width, int height, Color col)
         {
             var pix = new Color[width * height];
@@ -90,7 +92,7 @@ namespace Editor
                 {
                     if (AudioManager.Instance)
                     {
-                        AudioManager.Instance.PlayEffectFromCollection(collection, Vector3.zero, 1f);
+                        AudioManager.Instance.PlayEffectFromCollection(collection, SoundPos, 1f);
                     }
                 }
 
@@ -121,7 +123,7 @@ namespace Editor
                 {
                     if (AudioManager.Instance)
                     {
-                        AudioManager.Instance.PlayEffectAt(clip, Vector3.zero, 1f);
+                        AudioManager.Instance.PlayEffectAt(clip, SoundPos, 1f);
                     }
                 }
 
@@ -176,7 +178,7 @@ namespace Editor
                 {
                     if (AudioManager.Instance)
                     {
-                        AudioManager.Instance.PlayEffectFromCollection((SoundCollection)row.FindPropertyRelative("collection").objectReferenceValue, Vector3.zero, row.FindPropertyRelative("volume").floatValue);
+                        AudioManager.Instance.PlayEffectFromCollection((SoundCollection)row.FindPropertyRelative("collection").objectReferenceValue, SoundPos, row.FindPropertyRelative("volume").floatValue);
                     }
                 }
                 GUILayout.Label("★ " + row.FindPropertyRelative("collection").objectReferenceValue.name, EditorStyles.boldLabel, GUILayout.Width(80.0f));
@@ -196,7 +198,7 @@ namespace Editor
                 {
                     if (AudioManager.Instance)
                     {
-                        AudioManager.Instance.PlayEffectAt((AudioClip)row.FindPropertyRelative("clip").objectReferenceValue, Vector3.zero, row.FindPropertyRelative("volume").floatValue);
+                        AudioManager.Instance.PlayEffectAt((AudioClip)row.FindPropertyRelative("clip").objectReferenceValue, SoundPos, row.FindPropertyRelative("volume").floatValue);
                     }
                 }
                 GUILayout.Label(row.FindPropertyRelative("clip").objectReferenceValue.name, EditorStyles.boldLabel, GUILayout.Width(80.0f));
@@ -212,7 +214,7 @@ namespace Editor
             
             if (GUILayout.Button("► Play"))
             {
-                ((SoundComposition)serializedObject.targetObject).Play();
+                ((SoundComposition)serializedObject.targetObject).Play(SoundPos);
             }
 
             EditorGUILayout.EndVertical();

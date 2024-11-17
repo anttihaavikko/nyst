@@ -4956,6 +4956,7 @@ GameObject:
   - component: {fileID: 6715224358817482009}
   - component: {fileID: 2795049599495204745}
   - component: {fileID: 2709714101729053059}
+  - component: {fileID: 6879772472593658006}
   m_Layer: 0
   m_Name: Pearl
   m_TagString: Untagged
@@ -5108,3 +5109,19 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   clickable: {fileID: 6715224358817482009}
   mesh: {fileID: 6504262976019456904}
+--- !u!114 &6879772472593658006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795646774123310619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa87068f6644608a4fb7218c913c69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 1
+  sound: {fileID: 11400000, guid: 1800c90a27b6942f4a0f3180308f07b5, type: 2}
+  volume: 1
+  delay: 0.2
