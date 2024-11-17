@@ -50,6 +50,7 @@ public class Hands : MonoBehaviour
             {
                 _spawned = Instantiate(pearlPrefab, launchSpot.position, Quaternion.identity);
                 _spawned.GetComponent<Clickable>().enabled = false;
+                _spawned.Mesh.material = inventory.PearlMaterial;
             }
 
             _spawned.gameObject.SetActive(true);
@@ -65,7 +66,7 @@ public class Hands : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
         {
             _spawned.Throw(cam.transform.forward * (150f * _launchSpeed), pearlRespawn.position);
-            inventory.Pearls--;
+            inventory.RemovePearl();
             inventory.UpdateCounts();
             _launchSpeed = 0;
             _spawned = null;

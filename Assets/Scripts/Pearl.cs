@@ -7,8 +7,11 @@ public class Pearl : MonoBehaviour
 {
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Clickable clickable;
+    [SerializeField] private MeshRenderer mesh;
 
     private Vector3 _respawn;
+
+    public MeshRenderer Mesh => mesh;
 
     public void Throw(Vector3 dir, Vector3 respawn)
     {
@@ -20,7 +23,7 @@ public class Pearl : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Target")
+        if (other.gameObject.CompareTag("Target"))
         {
             other.gameObject.GetComponent<PearlTarget>()?.Hit(rigidBody.linearVelocity, other.contacts[0].point);
         }
@@ -28,12 +31,10 @@ public class Pearl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Kill"))
-        {
-            transform.position = _respawn;
-            rigidBody.linearVelocity = Vector3.zero;
-            rigidBody.angularVelocity = Vector3.zero;
-            rigidBody.AddForce(new Vector3(Random.value - 0.5f, Random.value - 0.5f, Random.value - 0.5f) * 10f, ForceMode.Impulse);
-        }
+        if (!other.CompareTag("Kill")) return;
+        transform.position = _respawn;
+        rigidBody.linearVelocity = Vector3.zero;
+        rigidBody.angularVelocity = Vector3.zero;
+        rigidBody.AddForce(new Vector3(Random.value - 0.5f, Random.value - 0.5f, Random.value - 0.5f) * 10f, ForceMode.Impulse);
     }
 }

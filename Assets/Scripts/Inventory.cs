@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Utils;
 using TMPro;
@@ -11,10 +12,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private HintBoard hintBoard;
 
     private bool _visible;
+    private readonly Stack<Material> _pearlMaterials = new(); 
     
     public int Keys { get; set; }
-    public int Pearls { get; set; }
+    public int Pearls { get; private set; }
     public int Batteries { get; set; }
+
+    public Material PearlMaterial => _pearlMaterials.Peek();
 
     private void ShowCounts()
     {
@@ -33,6 +37,13 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AddPearl(Pearl pearl)
+    {
+        Pearls++;
+        _pearlMaterials.Push(pearl.Mesh.material);
+        UpdateCounts();
+    }
+
     public void UpdateCounts()
     {
         keys.text = Keys.ToString();
@@ -40,5 +51,11 @@ public class Inventory : MonoBehaviour
         batteries.text = Batteries.ToString();
         ShowCounts();
         hintBoard.UpdatePearls(this);
+    }
+
+    public void RemovePearl()
+    {
+        _pearlMaterials.Pop();
+        Pearls--;
     }
 }
