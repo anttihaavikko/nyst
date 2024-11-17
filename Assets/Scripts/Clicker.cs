@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AnttiStarterKit.Animations;
 using AnttiStarterKit.Managers;
+using AnttiStarterKit.ScriptableObjects;
 using AnttiStarterKit.Utils;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -21,6 +22,7 @@ public class Clicker : MonoBehaviour
     [SerializeField] private HandScreen handScreen;
 
     [SerializeField] private Inventory inventory;
+    [SerializeField] private SoundComposition noPowerSound;
 
     private Clickable _prev;
 
@@ -76,7 +78,14 @@ public class Clicker : MonoBehaviour
         {
             EffectManager.AddEffect(clickable.ClickEffect, hits[0].point - ray.direction * 0.25f);
             right.Push(clickable.PointDelay);
-            if(clickable.IsPowered) clickable.Click(inventory);
+            if (clickable.IsPowered)
+            {
+                clickable.PlaySound();
+                clickable.Click(inventory);
+                return;
+            }
+
+            noPowerSound?.Play();
         }
     }
 

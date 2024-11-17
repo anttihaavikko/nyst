@@ -1,5 +1,7 @@
 using System;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.ScriptableObjects;
+using AnttiStarterKit.Utils;
 using StarterAssets;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +14,8 @@ public class Hand : MonoBehaviour
     [SerializeField] private StarterAssetsInputs input;
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private Transform wrist;
+    [SerializeField] private SoundComposition stepSound;
+    [SerializeField] private Transform stepPosition;
 
     private Vector3 _originalPosition;
     private float _delta;
@@ -24,6 +28,7 @@ public class Hand : MonoBehaviour
     private float _drop;
     private bool _wasGrounded;
     private float _pointDelay;
+    private float _stepDelay;
     
     private const float Speed = 3f;
 
@@ -60,6 +65,7 @@ public class Hand : MonoBehaviour
 
     private void Update ()
     {
+        _stepDelay -= Time.deltaTime;
         _pointDelay = Mathf.MoveTowards(_pointDelay, 0, Time.deltaTime);
         if (!_wasGrounded && firstPersonController.Grounded) _drop = Mathf.PI;
         var fall = firstPersonController.Grounded ? 0 : -firstPersonController.VerticalVelocity;
@@ -72,6 +78,12 @@ public class Hand : MonoBehaviour
         _time += Time.deltaTime * speed;
         var phase = _time * 0.75f * Speed + Mathf.PI + phaseOffset;
         var diff = Mathf.Lerp(0, Mathf.Abs(Mathf.Sin(phase)) - 0.5f, _delta);
+        if (firstPersonController.Grounded && diff > 0.4f && _stepDelay <= 0)
+        {
+            var vol = Random.Range(-0.1f, 0.1f);
+            stepSound.Play(stepPosition.position, (running ? 2f : 1f) * (0.6f + vol));
+            _stepDelay = 0.5f;
+        }
         var dir = Mathf.PerlinNoise1D(_time * 0.3f + direction * 100f) * 1.5f - 0.75f + diff + _lift;
         var drop = Mathf.Sin(_drop) * 0.1f;
         target.localPosition = _originalPosition + Vector3.up * (dir * 0.1f) + Vector3.down * drop + Vector3.left * (drop * 0.75f);

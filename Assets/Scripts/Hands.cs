@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Managers;
+using AnttiStarterKit.ScriptableObjects;
 using AnttiStarterKit.Utils;
 using StarterAssets;
 using TMPro;
@@ -23,17 +24,46 @@ public class Hands : MonoBehaviour
     [SerializeField] private Transform launchBar;
     [SerializeField] private Transform pearlRespawn;
     [SerializeField] private Inventory inventory;
+    [SerializeField] private SoundComposition jumpSound, landSound;
+    [SerializeField] private Transform legPosition;
 
     private float _launchSpeed;
     private Pearl _spawned;
     private bool _state;
     private int _screenOption;
     private bool _canChange = true;
+    private float _jumpSoundDelay, _landSoundDelay;
+    private bool _wasGrounded;
+    
     private static readonly int ShowAnim = Animator.StringToHash("show");
     private static readonly int GrabAnim = Animator.StringToHash("grab");
 
+    private void Start()
+    {
+        firstPersonController.Jumped += JumpSound;
+    }
+
+    private void JumpSound()
+    {
+        if (_jumpSoundDelay > 0) return;
+        _jumpSoundDelay = 0.2f;
+        jumpSound.Play(legPosition.position);
+    }
+
     private void Update()
     {
+        _jumpSoundDelay -= Time.deltaTime;
+        _landSoundDelay -= Time.deltaTime;
+
+        if (!_wasGrounded && firstPersonController.Grounded && _landSoundDelay <= 0)
+        {
+            var volume = Mathf.Clamp(Mathf.Abs(firstPersonController.VerticalVelocity) * 0.1f, 0, 1f);
+            _landSoundDelay = 0.2f;
+            landSound.Play(legPosition.position, volume);
+        }
+
+        _wasGrounded = firstPersonController.Grounded;
+        
         if (Input.GetKeyDown(KeyCode.Escape)) Toggle();
 
         if (_state)

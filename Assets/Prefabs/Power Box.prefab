@@ -193,6 +193,7 @@ MonoBehaviour:
   locked: 0
   poweredBy: []
   clickEffect: 0
+  sound: {fileID: 11400000, guid: 560cec67d9f6b4c6dba886322471cdd7, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -443,6 +444,7 @@ MonoBehaviour:
   locked: 0
   poweredBy: []
   clickEffect: 0
+  sound: {fileID: 11400000, guid: 560cec67d9f6b4c6dba886322471cdd7, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -635,6 +637,7 @@ MonoBehaviour:
   locked: 0
   poweredBy: []
   clickEffect: 0
+  sound: {fileID: 0}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &4474815727362690486
 MonoBehaviour:

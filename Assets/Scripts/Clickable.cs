@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AnttiStarterKit.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ public abstract class Clickable : MonoBehaviour
     [SerializeField] protected bool locked;
     [SerializeField] private List<BatteryBox> poweredBy;
     [SerializeField] private int clickEffect;
+    [SerializeField] protected SoundComposition sound;
     
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
 
@@ -28,6 +30,11 @@ public abstract class Clickable : MonoBehaviour
         {
             outline.enabled = state;   
         }
+    }
+
+    public void PlaySound()
+    {
+        sound?.Play(transform.position);
     }
 
     public abstract void Click(Inventory inventory);

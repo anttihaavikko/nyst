@@ -157,10 +157,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: button
   outline: {fileID: 6268742422041104169}
+  pointDelay: 0
+  locked: 0
+  poweredBy: []
+  clickEffect: 0
+  sound: {fileID: 11400000, guid: ba6457c7baf56472981204ddaf27840f, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  toggleable: {fileID: 0}
   correct: 1
   blinks: 0
+  resetAfter: -1
 --- !u!114 &250907017040381665
 MonoBehaviour:
   m_ObjectHideFlags: 0

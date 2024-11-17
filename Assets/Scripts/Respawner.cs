@@ -12,7 +12,7 @@ public class Respawner : MonoBehaviour
     private void Start()
     {
         SaveSpot();
-        firstPersonController.Jumped = SaveSpot;
+        firstPersonController.Jumped += SaveSpot;
     }
 
     private void SaveSpot()

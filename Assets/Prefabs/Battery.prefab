@@ -105,6 +105,7 @@ MonoBehaviour:
   locked: 0
   poweredBy: []
   clickEffect: 1
+  sound: {fileID: 11400000, guid: 560cec67d9f6b4c6dba886322471cdd7, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   type: 1
 --- !u!114 &6934812350572859451
