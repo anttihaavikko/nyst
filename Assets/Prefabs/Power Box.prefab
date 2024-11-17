@@ -129,7 +129,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3962627749370063309}
-  m_Mesh: {fileID: -2159965483007997719, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+  m_Mesh: {fileID: -2159965483007997719, guid: 0ef61b1eddcc144aca052559e20d5c00, type: 3}
 --- !u!23 &245494287019282250
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee00c7300713746e1bde588301b2bd48, type: 2}
+  - {fileID: 2100000, guid: 8078ae987963a4cc4a1ea31734b1699a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   pointDelay: 0
   locked: 0
   poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -323,7 +324,7 @@ PrefabInstance:
     - target: {fileID: -5174998623976215188, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ee00c7300713746e1bde588301b2bd48, type: 2}
+      objectReference: {fileID: 2100000, guid: 8078ae987963a4cc4a1ea31734b1699a, type: 2}
     - target: {fileID: -3696312311951086546, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -336,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Power Box
       objectReference: {fileID: 0}
+    - target: {fileID: 2376448374625280135, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2159965483007997719, guid: 0ef61b1eddcc144aca052559e20d5c00, type: 3}
     - target: {fileID: 4433126990426304395, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -434,6 +439,7 @@ MonoBehaviour:
   pointDelay: 0
   locked: 0
   poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   visible: 0
   invisible: {fileID: 2100000, guid: eb0e4c3b870b444d8b47aacc9ea089b2, type: 2}
@@ -625,6 +631,7 @@ MonoBehaviour:
   pointDelay: 0
   locked: 0
   poweredBy: []
+  clickEffect: 0
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &4474815727362690486
 MonoBehaviour:
