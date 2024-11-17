@@ -23,7 +23,7 @@ public class ButtonPanel : MonoBehaviour
         _buttons = GetComponentsInChildren<PushButton>();
     }
 
-    public void Check()
+    public virtual void Check(PushButton button)
     {
         if (_done && secondary && _buttons.All(b => b.IsInverted))
         {

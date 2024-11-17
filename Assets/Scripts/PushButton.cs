@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PushButton : Clickable
 {
+    [SerializeField] private string letter;
     [SerializeField] private bool correct;
     [SerializeField] private bool blinks;
     [SerializeField] private float resetAfter = -1;
@@ -20,6 +21,8 @@ public class PushButton : Clickable
     public bool IsOk => _state == correct;
     public bool IsInverted => _state != correct;
     public bool GetState => _state;
+
+    public string Letter => letter;
 
     private void Start()
     {
@@ -53,7 +56,7 @@ public class PushButton : Clickable
         Tweener.MoveLocalTo(transform, transform.localPosition.WhereX(_state ? _start * 0.5f : _start), 0.2f);
         _meshRenderer.material.SetColor(BaseColor, GetColor());
         // _meshRenderer.material.EnableKeyword("_EMISSION");
-        _panel?.Check();
+        _panel?.Check(this);
         
         _activator?.Activate();
     }
