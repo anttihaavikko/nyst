@@ -29,6 +29,12 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         ui.SetActive(_visible || Input.GetMouseButton(1));
+        
+        if (DevKey.Down(KeyCode.K))
+        {
+            Keys++;
+            UpdateCounts();
+        }
 
         if (DevKey.Down(KeyCode.Q))
         {
