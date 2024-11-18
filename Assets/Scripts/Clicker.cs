@@ -94,7 +94,7 @@ public class Clicker : MonoBehaviour
         _prev?.ToggleOutline(false);
         const float duration = 0.2f;
         var size = Vector3.one * (state ? 1f : 0.6f);
-        cursorLines.ForEach(l => Tweener.ScaleToBounceOut(l, size, duration));
+        // cursorLines.ForEach(l => Tweener.ScaleToBounceOut(l, size, duration));
         Tweener.ScaleToBounceOut(cursorWrap, Vector3.one * (state ? 2.5f : 2f), duration);
         Tweener.RotateToBounceOut(cursorWrap, Quaternion.Euler(0, 0, state ? 45f * Misc.PlusMinusOne() : 0f), duration);
     }
