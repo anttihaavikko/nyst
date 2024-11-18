@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Door : Clickable
 {
-    [SerializeField] private SoundComposition lockSound;
-    
     private Activatable _toggleable;
 
     private void Start()
@@ -14,17 +12,7 @@ public class Door : Clickable
 
     public override void Click(Inventory inventory)
     {
-        if (locked)
-        {
-            lockSound?.Play(transform.position);
-            return;
-        }
-        
+        if (locked) return;
         _toggleable?.Activate();
-    }
-    
-    public override bool CanInteract(Inventory inventory)
-    {
-        return true;
     }
 }

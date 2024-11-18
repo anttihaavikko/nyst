@@ -12,12 +12,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private HintBoard hintBoard;
 
     private bool _visible;
-    private readonly Stack<Material> _pearlMaterials = new(); 
+    private readonly Stack<Material> _pearlMaterials = new();
+    private readonly List<CollectibleType> _collectibles = new();
     
     public int Keys { get; set; }
     public int Pearls { get; private set; }
     public int Batteries { get; set; }
-    public bool Compass { get; set; }
 
     public Material PearlMaterial => _pearlMaterials.Peek();
 
@@ -64,5 +64,15 @@ public class Inventory : MonoBehaviour
     {
         _pearlMaterials.Pop();
         Pearls--;
+    }
+
+    public void Add(CollectibleType type)
+    {
+        if(!_collectibles.Contains(type)) _collectibles.Add(type);
+    }
+
+    public bool Has(CollectibleType type)
+    {
+        return _collectibles.Contains(type);
     }
 }

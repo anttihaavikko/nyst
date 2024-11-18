@@ -80,7 +80,7 @@ public class Clicker : MonoBehaviour
             right.Push(clickable.PointDelay);
             if (clickable.IsPowered)
             {
-                clickable.PlaySound();
+                clickable.PlaySound(inventory);
                 clickable.Click(inventory);
                 return;
             }

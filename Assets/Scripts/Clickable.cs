@@ -13,6 +13,7 @@ public abstract class Clickable : MonoBehaviour
     [SerializeField] private List<BatteryBox> poweredBy;
     [SerializeField] private int clickEffect;
     [SerializeField] protected SoundComposition sound;
+    [SerializeField] protected SoundComposition lockSound;
     
     public Color buttonOffColor = new(0.5f, 0.5f, 0.5f);
 
@@ -32,8 +33,13 @@ public abstract class Clickable : MonoBehaviour
         }
     }
 
-    public void PlaySound()
+    public void PlaySound(Inventory inventory)
     {
+        if (IsLocked(inventory))
+        {
+            lockSound?.Play(transform.position);
+            return;
+        }
         sound?.Play(transform.position);
     }
 
@@ -41,7 +47,12 @@ public abstract class Clickable : MonoBehaviour
 
     public virtual bool CanInteract(Inventory inventory)
     {
-        return !locked;
+        return true;
+    }
+    
+    public virtual bool IsLocked(Inventory inventory)
+    {
+        return locked;
     }
 
     public void OpenLock()
