@@ -10,6 +10,7 @@ public class Collectable : Clickable
         if (type == CollectibleType.Battery) inventory.Batteries++;
         if (type == CollectibleType.Pearl) inventory.AddPearl(gameObject.GetComponent<Pearl>());
         if (type == CollectibleType.Key) inventory.Keys++;
+        if (type == CollectibleType.Compass) inventory.Compass = true;
         inventory.UpdateCounts();
     }
 }
@@ -18,5 +19,6 @@ public enum CollectibleType
 {
     Pearl,
     Battery,
-    Key
+    Key,
+    Compass
 }

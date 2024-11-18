@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     public int Keys { get; set; }
     public int Pearls { get; private set; }
     public int Batteries { get; set; }
+    public bool Compass { get; set; }
 
     public Material PearlMaterial => _pearlMaterials.Peek();
 
