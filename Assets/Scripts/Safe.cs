@@ -1,12 +1,14 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Safe : ButtonPanel
 {
-    [SerializeField] private string password;
+    [SerializeField] private List<string> passwords;
 
     private string _input = "";
 
-    public bool IsCorrect => _input == password;
+    public bool IsCorrect => passwords.Contains(_input);
     
     public override void Check(PushButton button)
     {

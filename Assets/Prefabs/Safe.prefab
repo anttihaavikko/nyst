@@ -181,7 +181,8 @@ MonoBehaviour:
   rotation: {x: 0, y: 0, z: 0}
   secondary: {fileID: 0}
   sound: {fileID: 0}
-  password: 7731
+  passwords:
+  - 7731
 --- !u!1 &1797353373422587244
 GameObject:
   m_ObjectHideFlags: 0
