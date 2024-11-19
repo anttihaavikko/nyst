@@ -26,6 +26,7 @@ public class Hands : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private SoundComposition jumpSound, landSound, throwSound, spawnSound;
     [SerializeField] private Transform legPosition;
+    [SerializeField] private Compass compass;
 
     private float _launchSpeed;
     private Pearl _spawned;
@@ -74,31 +75,42 @@ public class Hands : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Return)) options[_screenOption].Act();
         }
 
-        if (Input.GetMouseButtonDown(1) && inventory.Pearls > 0)
+        if (Input.GetMouseButtonDown(1))
         {
-            if (!_spawned)
-            {
-                _spawned = Instantiate(pearlPrefab, launchSpot.position, Quaternion.identity);
-                _spawned.GetComponent<Clickable>().enabled = false;
-                _spawned.Mesh.material = inventory.PearlMaterial;
-            }
+            if(inventory.Has(CollectibleType.Compass)) compass.Show(true);
 
-            _spawned.gameObject.SetActive(true);
-            EffectManager.AddEffect(2, _spawned.transform.position);
-            spawnSound?.Play(_spawned.transform.position);
+            if (inventory.Pearls > 0)
+            {
+                if (!_spawned)
+                {
+                    _spawned = Instantiate(pearlPrefab, launchSpot.position, Quaternion.identity);
+                    _spawned.GetComponent<Clickable>().enabled = false;
+                    _spawned.Mesh.material = inventory.PearlMaterial;
+                }
+
+                _spawned.gameObject.SetActive(true);
+                EffectManager.AddEffect(2, _spawned.transform.position);
+                spawnSound?.Play(_spawned.transform.position);   
+            }
         }
         
-        if(Input.GetMouseButtonUp(1) && _spawned)
+        if(Input.GetMouseButtonUp(1))
         {
-            _spawned.gameObject.SetActive(false);
-            EffectManager.AddEffect(2, _spawned.transform.position);
-            throwSound?.Play(_spawned.transform.position);
+            compass.Show(false);
+
+            if (_spawned)
+            {
+                 _spawned.gameObject.SetActive(false);
+                EffectManager.AddEffect(2, _spawned.transform.position);
+                throwSound?.Play(_spawned.transform.position);   
+            }
         }
 
         if (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1) && _spawned)
         {
             throwSound?.Play(_spawned.transform.position);
             _spawned.Throw(cam.transform.forward * (150f * _launchSpeed), pearlRespawn.position);
+            compass.AddTarget(_spawned.transform);
             inventory.RemovePearl();
             inventory.UpdateCounts();
             _launchSpeed = 0;
