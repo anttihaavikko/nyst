@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TMP_Text pearls, keys, batteries;
     [SerializeField] private GameObject ui;
     [SerializeField] private HintBoard hintBoard;
+    [SerializeField] private GameObject compass, gemRed, gemGreen, gemBlue, gemYellow;
 
     private bool _visible;
     private readonly Stack<Material> _pearlMaterials = new();
@@ -58,6 +59,12 @@ public class Inventory : MonoBehaviour
         batteries.text = Batteries.ToString();
         ShowCounts();
         hintBoard.UpdatePearls(this);
+        
+        compass.SetActive(Has(CollectibleType.Compass));
+        gemBlue.SetActive(Has(CollectibleType.GemBlue));
+        gemGreen.SetActive(Has(CollectibleType.GemGreen));
+        gemRed.SetActive(Has(CollectibleType.GemRed));
+        gemYellow.SetActive(Has(CollectibleType.GemYellow));
     }
 
     public void RemovePearl()
