@@ -16,6 +16,11 @@ public class Collectable : Clickable
         inventory.Add(type);
         inventory.UpdateCounts();
     }
+
+    public void ToggleLock()
+    {
+        locked = !locked;
+    }
 }
 
 public enum CollectibleType
