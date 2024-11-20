@@ -38,11 +38,11 @@ public class HintBoard : MonoBehaviour
         
         for(var i = 0; i < images.Count; i++)
         {
-            images[i].color = _counts[i] > 0 ? Color.black : Color.white;
+            images[i].color = _counts[i] > 0 ? Color.white : Color.clear;
             images[i].sprite = _counts[i] > 1 ? fullImage : halfImage;
             if (_counts[i] <= 0) continue;
             characters[i].gameObject.SetActive(true);
-            characters[i].Setup(letters.GetList(GetPasswordPart(i)), Color.black);
+            characters[i].Setup(letters.GetList(GetPasswordPart(i)), Color.white);
         }
     }
 
