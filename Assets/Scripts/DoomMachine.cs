@@ -4,7 +4,7 @@ using AnttiStarterKit.Animations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DoomMachine : Clickable
+public class DoomMachine : Activatable
 {
     [SerializeField] private GameObject lava;
     [SerializeField] private List<Toggleable> toggleables;
@@ -25,7 +25,7 @@ public class DoomMachine : Clickable
         sun.color = Color.Lerp(Color.white, doomColor, TweenEasings.QuadraticEaseInOut(_transition));
     }
 
-    public override void Click(Inventory inventory)
+    public override void Activate()
     {
         _state = !_state;
         lava.SetActive(_state);
