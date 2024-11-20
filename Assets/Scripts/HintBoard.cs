@@ -12,6 +12,8 @@ public class HintBoard : MonoBehaviour
     [SerializeField] private Letters letters;
     [SerializeField] private List<Image> images;
     [SerializeField] private Sprite halfImage, fullImage;
+    [SerializeField] private List<BatteryBox> batteryBoxes;
+    [SerializeField] private Inventory inventory;
 
     private List<int> _counts;
     private int _prevCount;
@@ -25,9 +27,11 @@ public class HintBoard : MonoBehaviour
         _inverted = images.Select(_ => Random.value < 0.5f).ToList();
         _indices = new List<int> { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 }.RandomOrder().ToList();
         _counts = images.Select(_ => 0).ToList();
+        
+        batteryBoxes.ForEach(b => b.Toggled += UpdateScreen);
     }
 
-    public void UpdatePearls(Inventory inventory)
+    public void UpdatePearls()
     {
         if (inventory.Pearls <= _prevCount) return;
 
@@ -35,13 +39,19 @@ public class HintBoard : MonoBehaviour
         if (index >= _indices.Count) return;
         _counts[_indices[index]]++;
         _prevCount = inventory.Pearls;
-        
+
+        UpdateScreen();
+    }
+
+    private void UpdateScreen()
+    {
         for(var i = 0; i < images.Count; i++)
         {
-            images[i].color = _counts[i] > 0 ? Color.white : Color.clear;
-            images[i].sprite = _counts[i] > 1 ? fullImage : halfImage;
-            if (_counts[i] <= 0) continue;
-            characters[i].gameObject.SetActive(true);
+            var powered = batteryBoxes[Mathf.FloorToInt(i * 0.5f)].IsPowered;
+            images[i].color = powered && _counts[i] > 0 ? Color.white : Color.clear;
+            images[i].sprite = powered && _counts[i] > 1 ? fullImage : halfImage;
+            characters[i].gameObject.SetActive(_counts[i] > 0 && powered);
+            if (_counts[i] <= 0 || !powered) continue;
             characters[i].Setup(letters.GetList(GetPasswordPart(i)), Color.white);
         }
     }

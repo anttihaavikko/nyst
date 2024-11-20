@@ -10,6 +10,8 @@ public class Battery : Clickable
     private Material _normal;
 
     public bool IsPlaced => visible;
+    
+    public Action Toggled { get; set; }
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class Battery : Clickable
         inventory.UpdateCounts();
         visible = !visible;
         _mesh.material = visible ? _normal : invisible;
+        Toggled?.Invoke();
     }
     
     public override bool CanInteract(Inventory inventory)

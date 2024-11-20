@@ -43,6 +43,12 @@ public class Inventory : MonoBehaviour
             Pearls++;
             UpdateCounts();
         }
+        
+        if (DevKey.Down(KeyCode.B))
+        {
+            Batteries++;
+            UpdateCounts();
+        }
     }
 
     public void AddPearl(Pearl pearl)
@@ -58,7 +64,7 @@ public class Inventory : MonoBehaviour
         pearls.text = Pearls.ToString();
         batteries.text = Batteries.ToString();
         ShowCounts();
-        hintBoard.UpdatePearls(this);
+        hintBoard.UpdatePearls();
         
         compass.SetActive(Has(CollectibleType.Compass));
         gemBlue.SetActive(Has(CollectibleType.GemBlue));
