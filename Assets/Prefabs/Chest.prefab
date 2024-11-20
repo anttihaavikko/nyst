@@ -888,7 +888,7 @@ PrefabInstance:
     - target: {fileID: -5438583605291355801, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: -2577548232221058511, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.55
@@ -904,7 +904,7 @@ PrefabInstance:
     - target: {fileID: -1439730007547781893, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: 919132149155446097, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -916,11 +916,11 @@ PrefabInstance:
     - target: {fileID: 2563597704586853295, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: 3219882101630006985, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: 3316992658331686828, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.55
@@ -928,11 +928,11 @@ PrefabInstance:
     - target: {fileID: 7071182760956848314, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: 7202271454713460447, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -876546973899608171, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
+      objectReference: {fileID: 2100000, guid: f25123bcfc3534e8eb29291f658adf4d, type: 2}
     - target: {fileID: 8173996474235241004, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
       propertyPath: m_Name
       value: chest
