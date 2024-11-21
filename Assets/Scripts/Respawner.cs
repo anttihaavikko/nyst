@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using AnttiStarterKit.Extensions;
 using StarterAssets;
 using UnityEngine;
 
@@ -7,7 +10,8 @@ public class Respawner : MonoBehaviour
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private CharacterController controller;
     
-    private Vector3 _respawn;
+    private readonly List<Vector3> _respawns = new();
+    private bool _waiting;
 
     private void Start()
     {
@@ -17,16 +21,19 @@ public class Respawner : MonoBehaviour
 
     private void SaveSpot()
     {
-        _respawn = controller.transform.position;
+        if (_waiting) return;
+        _respawns.Add(controller.transform.position);
+        if (_respawns.Count > 20) _respawns.RemoveAt(0);
+        _waiting = true;
+        this.StartCoroutine(() => _waiting = false, 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Kill"))
-        {
-            controller.enabled = false;
-            controller.transform.position = _respawn;
-            controller.enabled = true;
-        }
+        if (!other.CompareTag("Kill")) return;
+        controller.enabled = false;
+        controller.transform.position = _respawns.Last();
+        if(_respawns.Count > 1) _respawns.RemoveAt(_respawns.Count - 1);
+        controller.enabled = true;
     }
 }
