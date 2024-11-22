@@ -21,14 +21,12 @@ namespace AnttiStarterKit.ScriptableObjects
 
         public void Play(Vector3 pos, float volume = 1f)
         {
-            if (!EditorApplication.isPlaying)
+            var am = AudioManager.Instance;
+            if (!am && !EditorApplication.isPlaying)
             {
                 rows.ForEach(r => AudioSource.PlayClipAtPoint(r.clip, pos, r.volume * volume));
                 return;
             }
-            
-            var am = AudioManager.Instance;
-            if (!am) return;
             
             foreach (var row in rows)
             {

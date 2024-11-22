@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: lock
   outline: {fileID: 2247209730176806492}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -362,6 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: chest
   outline: {fileID: 6327833209350375966}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -1029,8 +1031,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: lock
   outline: {fileID: 1228591646827355645}
+  extraOutlines: []
   pointDelay: 0
-  locked: 0
+  locked: 1
   poweredBy: []
   clickEffect: 1
   sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
@@ -1115,6 +1118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: chest
   outline: {fileID: 1991038255905605991}
+  extraOutlines: []
   pointDelay: 0
   locked: 1
   poweredBy: []

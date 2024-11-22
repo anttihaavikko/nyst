@@ -64,12 +64,17 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
+
+		private bool _hasDoubleJumped;
+		private bool _readyForSecondJump;
 		
 		public float VerticalVelocity => _verticalVelocity;
 		
 		public Action Jumped { get; set; }
 
 		public bool CanJump { get; set; } = true;
+
+		public bool CanDoubleJump { get; set; }
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -141,7 +146,9 @@ namespace StarterAssets
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+			var wasInAir = !Grounded;
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+			if (wasInAir && Grounded) _hasDoubleJumped = false;
 		}
 
 		private void CameraRotation()
@@ -218,7 +225,14 @@ namespace StarterAssets
 
 		private void JumpAndGravity()
 		{
-			if (Grounded)
+			if (!Grounded && !_hasDoubleJumped && CanDoubleJump && !_input.jump)
+			{
+				_readyForSecondJump = true;
+			}
+			
+			var hasJumpLeft = CanDoubleJump && !_hasDoubleJumped && _readyForSecondJump;
+			
+			if (Grounded || hasJumpLeft && _input.jump)
 			{
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
@@ -235,6 +249,12 @@ namespace StarterAssets
 					Jumped?.Invoke();
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+					if (!Grounded)
+					{
+						_readyForSecondJump = false;
+						_hasDoubleJumped = true;	
+					}
 				}
 
 				// jump timeout

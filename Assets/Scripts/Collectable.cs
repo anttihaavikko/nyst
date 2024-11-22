@@ -32,5 +32,6 @@ public enum CollectibleType
     GemGreen,
     GemRed,
     GemBlue,
-    GemYellow
+    GemYellow,
+    Jetpack
 }

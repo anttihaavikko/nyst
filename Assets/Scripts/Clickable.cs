@@ -8,6 +8,7 @@ public abstract class Clickable : MonoBehaviour
 {
     [SerializeField] private string screenName;
     [SerializeField] private Outline outline;
+    [SerializeField] private List<Outline> extraOutlines;
     [SerializeField] private float pointDelay;
     [SerializeField] protected bool locked;
     [SerializeField] private List<BatteryBox> poweredBy;
@@ -31,6 +32,8 @@ public abstract class Clickable : MonoBehaviour
         {
             outline.enabled = state;   
         }
+        
+        extraOutlines.ForEach(o => o.enabled = state);
     }
 
     public void PlaySound(Inventory inventory)

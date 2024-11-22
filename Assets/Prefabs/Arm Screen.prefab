@@ -478,7 +478,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8791904382647751103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ PrefabInstance:
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: de6915cc46c5a4088b821fc20384f711, type: 2}
+      objectReference: {fileID: 11400000, guid: 98d9d754cafd9418a9074c5860eea6d5, type: 2}
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontSizeBase
       value: 35
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: de6915cc46c5a4088b821fc20384f711, type: 2}
+      objectReference: {fileID: 11400000, guid: 98d9d754cafd9418a9074c5860eea6d5, type: 2}
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontSizeBase
       value: 35
@@ -1242,7 +1242,7 @@ PrefabInstance:
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: de6915cc46c5a4088b821fc20384f711, type: 2}
+      objectReference: {fileID: 11400000, guid: 98d9d754cafd9418a9074c5860eea6d5, type: 2}
     - target: {fileID: 8175517834955735433, guid: 1ff1e94d6e56a4e5c923c84ce857eda4, type: 3}
       propertyPath: m_fontSizeBase
       value: 35

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Utils;
+using StarterAssets;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject ui;
     [SerializeField] private HintBoard hintBoard;
     [SerializeField] private GameObject compass, gemRed, gemGreen, gemBlue, gemYellow;
+    [SerializeField] private FirstPersonController firstPersonController;
 
     private bool _visible;
     private readonly Stack<Material> _pearlMaterials = new();
@@ -82,6 +84,7 @@ public class Inventory : MonoBehaviour
     public void Add(CollectibleType type)
     {
         if(!_collectibles.Contains(type)) _collectibles.Add(type);
+        if (type == CollectibleType.Jetpack) firstPersonController.CanDoubleJump = true;
     }
 
     public bool Has(CollectibleType type)
