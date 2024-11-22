@@ -121,10 +121,7 @@ namespace Editor
                 
                 if (GUILayout.Button("►", GUILayout.MaxWidth(20.0f)))
                 {
-                    if (AudioManager.Instance)
-                    {
-                        AudioManager.Instance.PlayEffectAt(clip, SoundPos, 1f);
-                    }
+                    PlayClip(clip, 1f);
                 }
 
                 if (GUILayout.Button("Add", GUILayout.MaxWidth(70.0f)))
@@ -196,10 +193,8 @@ namespace Editor
                 GUILayout.BeginHorizontal();
                 if (GUILayout.Button("►", GUILayout.MaxWidth(20.0f)))
                 {
-                    if (AudioManager.Instance)
-                    {
-                        AudioManager.Instance.PlayEffectAt((AudioClip)row.FindPropertyRelative("clip").objectReferenceValue, SoundPos, row.FindPropertyRelative("volume").floatValue);
-                    }
+                    var clip = (AudioClip)row.FindPropertyRelative("clip").objectReferenceValue;
+                    PlayClip(clip, row.FindPropertyRelative("volume").floatValue);
                 }
                 GUILayout.Label(row.FindPropertyRelative("clip").objectReferenceValue.name, EditorStyles.boldLabel, GUILayout.Width(80.0f));
                 row.FindPropertyRelative("volume").floatValue = EditorGUILayout.Slider("", row.FindPropertyRelative("volume").floatValue, 0f, 5f);
@@ -221,6 +216,18 @@ namespace Editor
             // GUILayout.EndScrollView();
             
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void PlayClip(AudioClip clip, float volume)
+        {
+            if (AudioManager.Instance)
+            {
+                AudioManager.Instance.PlayEffectAt(clip, SoundPos, volume);
+            }
+            else
+            {
+                AudioSource.PlayClipAtPoint(clip, SoundPos, volume);
+            }
         }
 
         public static T[] GetAtPath<T> (string path) {
