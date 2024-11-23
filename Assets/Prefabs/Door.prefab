@@ -275,7 +275,7 @@ MonoBehaviour:
   locked: 0
   poweredBy: []
   clickEffect: 0
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  sound: {fileID: 11400000, guid: 4df247fe57259466a8dce20a7d3516a1, type: 2}
   lockSound: {fileID: 0}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable:
@@ -388,8 +388,8 @@ MonoBehaviour:
   locked: 1
   poweredBy: []
   clickEffect: 0
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
-  lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
+  sound: {fileID: 11400000, guid: 4df247fe57259466a8dce20a7d3516a1, type: 2}
+  lockSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable: []
   opens: {fileID: 6387818108888886413}
@@ -511,7 +511,7 @@ MonoBehaviour:
   poweredBy: []
   clickEffect: 0
   sound: {fileID: 11400000, guid: 8e861c9ef8650450f9a2f8cec0620c55, type: 2}
-  lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
+  lockSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &7615495875192814292
 MonoBehaviour:

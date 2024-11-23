@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3c62a61c64e6b8fb81ac647261eee, type: 3}
+  m_Name: locked
+  m_EditorClassIdentifier: 
+  rows:
+  - clip: {fileID: 8300000, guid: 50875fb4bf5be47a38e8bf882262aa95, type: 3}
+    volume: 0.26
+  - clip: {fileID: 8300000, guid: 2e76da09727f64cd99bf71c7e080b030, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 178c5b846ce7f42b6b6d00d3078b1b90, type: 3}
+    volume: 0.49
+  collections: []

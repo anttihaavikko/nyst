@@ -664,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: handle
   outline: {fileID: 5000704383989410277}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -1493,6 +1494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: handle
   outline: {fileID: 461614948875835162}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -1502,7 +1504,7 @@ MonoBehaviour:
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   safe: {fileID: 5631380634210377491}
   activator: {fileID: 1537946541824285097}
-  failSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
+  failSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
 --- !u!114 &2879336909565037566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1548,7 @@ MonoBehaviour:
   toggled: {fileID: 266323322101739217}
   duration: 0.8
   bounces: 1
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  sound: {fileID: 11400000, guid: 8e861c9ef8650450f9a2f8cec0620c55, type: 2}
 --- !u!65 &8704945126705885874
 BoxCollider:
   m_ObjectHideFlags: 0
