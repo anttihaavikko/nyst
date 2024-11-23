@@ -62,6 +62,11 @@ public class Inventory : MonoBehaviour
         {
             IsHacking = true;
         }
+        
+        if (DevKey.Down(KeyCode.C))
+        {
+            Add(CollectibleType.Compass);
+        }
     }
 
     public void AddPearl(Pearl pearl)

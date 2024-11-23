@@ -12,6 +12,7 @@ public class ComponentTogglerArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Debug.Log($"Entered: {other.gameObject.name}");
         if (other.CompareTag("Player") && components.Any())
         {
             sound?.Play(components[0].transform.position);

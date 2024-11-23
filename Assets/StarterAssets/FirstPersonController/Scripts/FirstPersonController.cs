@@ -177,7 +177,6 @@ namespace StarterAssets
 
 		private void Move()
 		{
-			if (Locked) return;
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -218,6 +217,8 @@ namespace StarterAssets
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
 			}
+			
+			if(Locked) inputDirection = Vector3.zero;
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
@@ -244,7 +245,7 @@ namespace StarterAssets
 				}
 
 				// Jump
-				if (CanJump && _input.jump && _jumpTimeoutDelta <= 0.0f)
+				if (CanJump && _input.jump && _jumpTimeoutDelta <= 0.0f && !Locked)
 				{
 					Jumped?.Invoke();
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
