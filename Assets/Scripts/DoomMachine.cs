@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -23,6 +24,11 @@ public class DoomMachine : Activatable
     {
         _transition = Mathf.MoveTowards(_transition, _state ? 1f : 0f, Time.deltaTime * 2f);
         sun.color = Color.Lerp(Color.white, doomColor, TweenEasings.QuadraticEaseInOut(_transition));
+
+        if (DevKey.Down(KeyCode.T))
+        {
+            Activate();
+        }
     }
 
     public override void Activate()

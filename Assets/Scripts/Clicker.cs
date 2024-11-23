@@ -78,7 +78,7 @@ public class Clicker : MonoBehaviour
         {
             EffectManager.AddEffect(clickable.ClickEffect, hits[0].point - ray.direction * 0.25f);
             right.Push(clickable.PointDelay);
-            if (clickable.IsPowered)
+            if (clickable.IsPowered || inventory.IsHacking)
             {
                 clickable.PlaySound(inventory);
                 clickable.Click(inventory);

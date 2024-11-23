@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public int Keys { get; set; }
     public int Pearls { get; private set; }
     public int Batteries { get; set; }
+    public bool IsHacking { get; private set; }
 
     public Material PearlMaterial => _pearlMaterials.Peek();
 
@@ -55,6 +56,11 @@ public class Inventory : MonoBehaviour
         if (DevKey.Down(KeyCode.J))
         {
             firstPersonController.CanDoubleJump = true;
+        }
+        
+        if (DevKey.Down(KeyCode.H))
+        {
+            IsHacking = true;
         }
     }
 
