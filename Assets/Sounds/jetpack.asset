@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3c62a61c64e6b8fb81ac647261eee, type: 3}
+  m_Name: jetpack
+  m_EditorClassIdentifier: 
+  rows:
+  - clip: {fileID: 8300000, guid: 8d808ffd091504d4eb2917c028adf4a2, type: 3}
+    volume: 0.23
+  - clip: {fileID: 8300000, guid: b44ad61864fc94d5bb6883c24b6dcd0f, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: c09efe163ae244a198810deede40ae9f, type: 3}
+    volume: 0.23
+  - clip: {fileID: 8300000, guid: df334a8bff8a34f57801651de4276bb9, type: 3}
+    volume: 1.43
+  collections: []

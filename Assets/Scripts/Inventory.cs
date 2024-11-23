@@ -51,6 +51,11 @@ public class Inventory : MonoBehaviour
             Batteries++;
             UpdateCounts();
         }
+
+        if (DevKey.Down(KeyCode.J))
+        {
+            firstPersonController.CanDoubleJump = true;
+        }
     }
 
     public void AddPearl(Pearl pearl)

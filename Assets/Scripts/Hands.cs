@@ -24,7 +24,7 @@ public class Hands : MonoBehaviour
     [SerializeField] private Transform launchBar;
     [SerializeField] private Transform pearlRespawn;
     [SerializeField] private Inventory inventory;
-    [SerializeField] private SoundComposition jumpSound, landSound, throwSound, spawnSound;
+    [SerializeField] private SoundComposition jumpSound, landSound, throwSound, spawnSound, jetpackSound;
     [SerializeField] private Transform legPosition;
     [SerializeField] private Compass compass;
 
@@ -48,7 +48,8 @@ public class Hands : MonoBehaviour
     {
         if (_jumpSoundDelay > 0) return;
         _jumpSoundDelay = 0.2f;
-        jumpSound.Play(legPosition.position);
+
+        (firstPersonController.Grounded ? jumpSound : jetpackSound).Play(legPosition.position);
     }
 
     private void Update()
