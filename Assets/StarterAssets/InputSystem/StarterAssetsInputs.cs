@@ -21,6 +21,9 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 		
 		public bool Locked { get; set; }
+		
+		public bool InvertX { get; set; }
+		public bool InvertY { get; set; }
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -55,7 +58,7 @@ namespace StarterAssets
 
 		public void LookInput(Vector2 newLookDirection)
 		{
-			look = newLookDirection;
+			look = new Vector2(newLookDirection.x * (InvertX ? -1 : 1), newLookDirection.y * (InvertY ? -1 : 1));
 		}
 
 		public void JumpInput(bool newJumpState)

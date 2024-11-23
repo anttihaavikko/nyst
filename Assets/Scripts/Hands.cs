@@ -13,7 +13,6 @@ public class Hands : MonoBehaviour
 {
     [SerializeField] private Animator left, right;
     // [SerializeField] private List<RevertableTransform> revertables;
-    [SerializeField] private List<MenuOption> options;
     [SerializeField] private List<GameObject> arrows;
     [SerializeField] private StarterAssetsInputs inputs;
     [SerializeField] private FirstPersonController firstPersonController;
@@ -27,11 +26,11 @@ public class Hands : MonoBehaviour
     [SerializeField] private SoundComposition jumpSound, landSound, throwSound, spawnSound, jetpackSound;
     [SerializeField] private Transform legPosition;
     [SerializeField] private Compass compass;
+    [SerializeField] private Menu menu;
 
     private float _launchSpeed;
     private Pearl _spawned;
     private bool _state;
-    private int _screenOption;
     private bool _canChange = true;
     private float _jumpSoundDelay, _landSoundDelay;
     private bool _wasGrounded;
@@ -42,7 +41,6 @@ public class Hands : MonoBehaviour
     private void Start()
     {
         firstPersonController.Jumped += JumpSound;
-        options.ForEach(o => o.gameObject.SetActive(false));
     }
 
     private void JumpSound()
@@ -74,7 +72,7 @@ public class Hands : MonoBehaviour
             if (inputs.move.y > 0.2f || Input.mouseScrollDelta.y > 0f) ChangeOption(1);
             if (inputs.move.y < -0.2f || Input.mouseScrollDelta.y < 0f) ChangeOption(-1);
             if (Mathf.Abs(inputs.move.y) < 0.2f) _canChange = true;
-            if(Input.GetKeyDown(KeyCode.Return)) options[_screenOption].Act();
+            if(Input.GetKeyDown(KeyCode.Return)) menu.Act();
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -141,9 +139,7 @@ public class Hands : MonoBehaviour
     {
         if (!_canChange) return;
         _canChange = false;
-        options[_screenOption].gameObject.SetActive(false);
-        _screenOption = (_screenOption + dir).LoopAround(0, options.Count);
-        options[_screenOption].gameObject.SetActive(true);
+        menu.ChangeOption(dir);
         this.StartCoroutine(() => _canChange = true, 0.3f);
     }
 
@@ -166,7 +162,7 @@ public class Hands : MonoBehaviour
         left.SetBool(ShowAnim, _state);
         right.SetBool(GrabAnim, _state);
 
-        options[_screenOption].gameObject.SetActive(_state);
+        menu.Toggle(_state);
         arrows.ForEach(a => a.SetActive(_state));
     }
 }
