@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: battery
   outline: {fileID: 3993592159747311889}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -675,6 +676,30 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.063
       objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.67903197
+      objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.67903197
+      objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.1972703
+      objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.1972703
+      objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -7622248176721718893, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 32.399
+      objectReference: {fileID: 0}
     - target: {fileID: -5174998623976215188, guid: 2ced3885d654344f5aa0d608f13d30bb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -796,6 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: battery
   outline: {fileID: 5755820179389640684}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -976,7 +1002,7 @@ MonoBehaviour:
   toggled: {fileID: 8507689502211123037}
   duration: 0.5
   bounces: 1
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  sound: {fileID: 0}
 --- !u!114 &6211660986218535256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,11 +1017,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: door
   outline: {fileID: 4474815727362690486}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
   clickEffect: 0
-  sound: {fileID: 0}
+  sound: {fileID: 11400000, guid: 8e861c9ef8650450f9a2f8cec0620c55, type: 2}
   lockSound: {fileID: 0}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &4474815727362690486

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Battery : Clickable
 {
@@ -27,6 +28,7 @@ public class Battery : Clickable
         visible = !visible;
         _mesh.material = visible ? _normal : invisible;
         Toggled?.Invoke();
+        transform.rotation *= Quaternion.Euler(0, 0, Random.value * 360f);
     }
     
     public override bool CanInteract(Inventory inventory)
