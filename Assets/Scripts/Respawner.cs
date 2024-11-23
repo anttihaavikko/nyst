@@ -21,7 +21,7 @@ public class Respawner : MonoBehaviour
 
     private void SaveSpot()
     {
-        if (_waiting) return;
+        if (_waiting || (_respawns.Count > 0 && !firstPersonController.Grounded)) return;
         _respawns.Add(controller.transform.position);
         if (_respawns.Count > 20) _respawns.RemoveAt(0);
         _waiting = true;
