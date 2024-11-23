@@ -42,6 +42,7 @@ public class Hands : MonoBehaviour
     private void Start()
     {
         firstPersonController.Jumped += JumpSound;
+        options.ForEach(o => o.gameObject.SetActive(false));
     }
 
     private void JumpSound()
