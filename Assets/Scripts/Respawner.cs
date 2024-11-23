@@ -9,6 +9,7 @@ public class Respawner : MonoBehaviour
 {
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private CharacterController controller;
+    [SerializeField] private Blinders blinders;
     
     private readonly List<Vector3> _respawns = new();
     private bool _waiting;
@@ -31,9 +32,21 @@ public class Respawner : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Kill")) return;
-        controller.enabled = false;
-        controller.transform.position = _respawns.Last();
-        if(_respawns.Count > 1) _respawns.RemoveAt(_respawns.Count - 1);
-        controller.enabled = true;
+        
+        other.GetComponent<SoundContainer>()?.Play(transform.position);
+
+        var wasLocked = firstPersonController.Locked;
+        blinders.Close();
+        firstPersonController.Locked = true;
+        
+        this.StartCoroutine(() =>
+        {
+            controller.enabled = false;
+            controller.transform.position = _respawns.Last();
+            if (_respawns.Count > 1) _respawns.RemoveAt(_respawns.Count - 1);
+            controller.enabled = true;
+            blinders.Open();
+            firstPersonController.Locked = wasLocked;
+        }, 0.6f);
     }
 }
