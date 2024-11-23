@@ -1123,7 +1123,7 @@ MonoBehaviour:
   locked: 1
   poweredBy: []
   clickEffect: 0
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  sound: {fileID: 11400000, guid: d0da57118c65f4aa9861bb79dc4e486e, type: 2}
   lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &1991038255905605991

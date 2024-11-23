@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: clasp
   outline: {fileID: 9192757057634628608}
+  extraOutlines: []
   pointDelay: 0
   locked: 0
   poweredBy: []
@@ -382,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: lock
   outline: {fileID: 5345945662145267955}
+  extraOutlines: []
   pointDelay: 0
   locked: 1
   poweredBy: []
@@ -503,11 +505,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: handle
   outline: {fileID: 227294090797525079}
+  extraOutlines: []
   pointDelay: 0
   locked: 1
   poweredBy: []
   clickEffect: 0
-  sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  sound: {fileID: 11400000, guid: 8e861c9ef8650450f9a2f8cec0620c55, type: 2}
   lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &7615495875192814292

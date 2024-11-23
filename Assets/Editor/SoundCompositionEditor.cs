@@ -213,6 +213,7 @@ namespace Editor
                 var sc = ((SoundComposition)serializedObject.targetObject);
                 if (!EditorApplication.isPlaying)
                 {
+                    ClearGarbage();
                     _garbage.AddRange(sc.PlayInEditMode(SoundPos));
                 }
                 else
@@ -233,8 +234,7 @@ namespace Editor
                 
                 if (GUILayout.Button("Clear"))
                 {
-                    _garbage.ForEach(DestroyImmediate);
-                    _garbage.Clear();
+                    ClearGarbage();
                 }
                 
                 GUILayout.EndHorizontal();
@@ -244,6 +244,12 @@ namespace Editor
             // GUILayout.EndScrollView();
             
             serializedObject.ApplyModifiedProperties();
+        }
+
+        private void ClearGarbage()
+        {
+            _garbage.ForEach(DestroyImmediate);
+            _garbage.Clear();
         }
 
         private void PlayClip(AudioClip clip, float volume)
