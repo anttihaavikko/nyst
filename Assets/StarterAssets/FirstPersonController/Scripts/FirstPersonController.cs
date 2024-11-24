@@ -221,6 +221,7 @@ namespace StarterAssets
 			if(Locked) inputDirection = Vector3.zero;
 
 			// move the player
+			if (!_controller.enabled) return;
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 		}
 

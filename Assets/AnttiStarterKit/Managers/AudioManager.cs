@@ -162,7 +162,7 @@ namespace AnttiStarterKit.Managers
 		public void ChangeMusicVolume(float vol)
 		{
 			PlayerPrefs.SetFloat("MusicVolume", vol);
-			curMusic.volume = musVolume = vol * 0.8f;
+			curMusic.volume = musVolume = vol * 0.7f;
 		}
 
 		public void ChangeSoundVolume(float vol)

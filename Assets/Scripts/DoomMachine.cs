@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.Managers;
 using AnttiStarterKit.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,6 +17,9 @@ public class DoomMachine : Activatable
     [SerializeField] private Color doomColor;
     [SerializeField] private Transform sunWrap;
     [SerializeField] private GameObject doomVolume;
+    [SerializeField] private MusicChanger musicChanger;
+    [SerializeField] private Material waterMaterial, lavaMaterial;
+    [SerializeField] private MeshRenderer water;
 
     private bool _state;
     private float _transition;
@@ -40,5 +44,8 @@ public class DoomMachine : Activatable
         gems.ForEach(g => g.ToggleLock());
         skybox.material = _state ? doomSky : normalSky;
         Tweener.RotateToQuad(sunWrap, Quaternion.Euler(0, Random.value * 360, 0), 0.5f);
+        // AudioManager.Instance.ChangeMusic(_state ? 1 : 0);
+        musicChanger.Toggle();
+        water.material = _state ? lavaMaterial : waterMaterial;
     }
 }
