@@ -49,9 +49,9 @@ namespace AnttiStarterKit.Managers
 			// reverb = GetComponent<AudioReverbFilter> ();
 			// fromReverb = AudioReverbPreset.Hallway;
 			// toReverb = AudioReverbPreset.Off;
-
-			volume = PlayerPrefs.GetFloat("SoundVolume", 0.5f);
-			musVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+			
+			ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
+			ChangeSoundVolume(PlayerPrefs.GetFloat("SoundVolume", 0.5f));
 
 			DontDestroyOnLoad(instance.gameObject);
 		}
@@ -162,7 +162,7 @@ namespace AnttiStarterKit.Managers
 		public void ChangeMusicVolume(float vol)
 		{
 			PlayerPrefs.SetFloat("MusicVolume", vol);
-			curMusic.volume = musVolume = vol;
+			curMusic.volume = musVolume = vol * 0.8f;
 		}
 
 		public void ChangeSoundVolume(float vol)
