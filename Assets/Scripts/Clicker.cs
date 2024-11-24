@@ -86,6 +86,7 @@ public class Clicker : MonoBehaviour
             }
 
             noPowerSound?.Play();
+            clickable.Nudge();
         }
     }
 

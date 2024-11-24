@@ -1,5 +1,6 @@
 using System;
 using AnttiStarterKit.Animations;
+using AnttiStarterKit.Extensions;
 using AnttiStarterKit.ScriptableObjects;
 using UnityEngine;
 
@@ -27,15 +28,24 @@ public class Toggleable : Activatable
         ToggleTo(!_state);
     }
 
-    private void ToggleTo(bool state)
+    private void ToggleTo(bool state, float durationMod = 1f)
     {
         sound?.Play(transform.position);
         _state = state;
         var easeFunc = GetEase();
-        Tweener.MoveTo(normal, _state ? toggled.position : _originalPosition, duration, easeFunc);
-        Tweener.ScaleTo(normal, _state ? toggled.localScale : _originalScale, duration, easeFunc);
-        Tweener.Instance.RotateTo(normal, _state ? toggled.rotation : _originalRotation, duration, 0, easeFunc);
+        Tweener.MoveTo(normal, _state ? toggled.position : _originalPosition, duration * durationMod, easeFunc);
+        Tweener.ScaleTo(normal, _state ? toggled.localScale : _originalScale, duration * durationMod, easeFunc);
+        Tweener.Instance.RotateTo(normal, _state ? toggled.rotation : _originalRotation, duration * durationMod, 0, easeFunc);
     }
+
+    public void Nudge()
+    {
+        Tweener.MoveTo(normal, Vector3.Lerp(_originalPosition, toggled.position, 0.15f), 0.15f, TweenEasings.BounceEaseOut);
+        Tweener.ScaleTo(normal, Vector3.Lerp(_originalScale, toggled.localScale, 0.15f), 0.15f, TweenEasings.BounceEaseOut);
+        Tweener.Instance.RotateTo(normal, Quaternion.Lerp(_originalRotation, toggled.rotation, 0.15f), 0.15f, 0, TweenEasings.BounceEaseOut);
+        this.StartCoroutine(() => ToggleTo(false, 0.5f), 0.15f);
+    }
+    
 
     private Func<float, float> GetEase()
     {

@@ -14,4 +14,9 @@ public class Lever : Clickable
         if (locked) return;
         _activator.Activate();
     }
+
+    public override void Nudge()
+    {
+        _activator.Nudge();
+    }
 }

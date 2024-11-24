@@ -12,4 +12,9 @@ public class Activator : MonoBehaviour
         activates.ForEach(a => a.Activate());
         sound?.Play(transform.position);
     }
+
+    public void Nudge()
+    {
+        activates.ForEach(a => (a as Toggleable)?.Nudge());
+    }
 }

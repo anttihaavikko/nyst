@@ -62,4 +62,8 @@ public abstract class Clickable : MonoBehaviour
     {
         locked = false;
     }
+
+    public virtual void Nudge()
+    {
+    }
 }

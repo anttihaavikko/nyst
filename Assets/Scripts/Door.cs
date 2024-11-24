@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Door : Clickable
 {
+    [SerializeField] private bool nudges;
+    
     private Activatable _toggleable;
 
     private void Start()
@@ -12,7 +14,16 @@ public class Door : Clickable
 
     public override void Click(Inventory inventory)
     {
-        if (locked) return;
+        if (locked)
+        {
+            Nudge();
+            return;
+        }
         _toggleable?.Activate();
+    }
+
+    public override void Nudge()
+    {
+        if (nudges) (_toggleable as Toggleable)?.Nudge();
     }
 }

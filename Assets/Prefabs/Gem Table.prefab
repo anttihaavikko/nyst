@@ -191,8 +191,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9999928, y: 1.9999928, z: 37.744137}
-  m_Center: {x: 0.00000001360784, y: -0.0000019312622, z: -16.418297}
+  m_Size: {x: 1.9999928, y: 1.9999928, z: 36.04452}
+  m_Center: {x: 0.000000014312247, y: -0.0000019256793, z: -17.268114}
 --- !u!1 &3883870902622773134 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5058642853545196, guid: d99cd54651479450381894c2945bbc0e, type: 3}
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: cage
   outline: {fileID: 422838913977834568}
+  extraOutlines: []
   pointDelay: 0
   locked: 1
   poweredBy: []
@@ -219,6 +220,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  nudges: 1
 --- !u!114 &422838913977834568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: gem
   outline: {fileID: 3529586796695130828}
+  extraOutlines: []
   pointDelay: 0
   locked: 1
   poweredBy: []
