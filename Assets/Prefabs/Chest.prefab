@@ -1039,7 +1039,7 @@ MonoBehaviour:
   poweredBy: []
   clickEffect: 1
   sound: {fileID: 11400000, guid: 4df247fe57259466a8dce20a7d3516a1, type: 2}
-  lockSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
+  lockSound: {fileID: 11400000, guid: 2017e3af1adcd42efb6f0c42b4c48acf, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   toggleable:
   - {fileID: 4364749411389808254}

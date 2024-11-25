@@ -277,6 +277,7 @@ MonoBehaviour:
   duration: 0.5
   bounces: 1
   sound: {fileID: 11400000, guid: 13cb5b42d99314f6386e1d3b74b6fc95, type: 2}
+  nudgeAmount: 0.1
 --- !u!4 &5585297310064575345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d99cd54651479450381894c2945bbc0e, type: 3}
@@ -354,7 +355,7 @@ MonoBehaviour:
   poweredBy: []
   clickEffect: 0
   sound: {fileID: 11400000, guid: 77d46961de6fc4d7abca9a3d285ab851, type: 2}
-  lockSound: {fileID: 11400000, guid: 8f993ace4c64a41bcbee096e26e79235, type: 2}
+  lockSound: {fileID: 11400000, guid: 44a1261f1130a4542a72dfb8fa2e4256, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   type: 4
 --- !u!114 &3529586796695130828

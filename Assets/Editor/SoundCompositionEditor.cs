@@ -210,7 +210,7 @@ namespace Editor
             
             if (GUILayout.Button("► Play"))
             {
-                var sc = ((SoundComposition)serializedObject.targetObject);
+                var sc = (SoundComposition)serializedObject.targetObject;
                 if (!EditorApplication.isPlaying)
                 {
                     ClearGarbage();

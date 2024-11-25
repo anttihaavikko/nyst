@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ed6741a13249ff91a11647becccdea, type: 3}
+  m_Name: presses
+  m_EditorClassIdentifier: 
+  volume: 1
+  clips:
+  - {fileID: 8300000, guid: a1a5448e1296740a9aae33476e0c1c3f, type: 3}
+  - {fileID: 8300000, guid: 3febd4a562c1a473e827d1842e059943, type: 3}
+  - {fileID: 8300000, guid: 9e5408804fb5b44fc91d7eaf7dc3b22e, type: 3}
+  - {fileID: 8300000, guid: 96b67e3bfdc614b689b5b14db530593d, type: 3}
+  - {fileID: 8300000, guid: b2da4a85cdfa44a6a828604a34e8c371, type: 3}

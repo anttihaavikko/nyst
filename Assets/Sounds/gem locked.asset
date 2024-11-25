@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3c62a61c64e6b8fb81ac647261eee, type: 3}
+  m_Name: gem locked
+  m_EditorClassIdentifier: 
+  rows:
+  - clip: {fileID: 8300000, guid: dddd2b5ab397e4c40b248a33978b64d7, type: 3}
+    volume: 1.43
+  - clip: {fileID: 8300000, guid: d4ab2711c1b4044f3b4c3cde59b86b35, type: 3}
+    volume: 0.72
+  - clip: {fileID: 8300000, guid: 0d47409aea8b34a4b8bcdfc781be8544, type: 3}
+    volume: 1
+  collections: []

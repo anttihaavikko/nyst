@@ -15,4 +15,6 @@ MonoBehaviour:
   rows:
   - clip: {fileID: 8300000, guid: 0a86d7048302c42d9828f400bad8aa47, type: 3}
     volume: 5
-  collections: []
+  collections:
+  - collection: {fileID: 11400000, guid: 5b025221199ef443994b0d7a4ced7fe7, type: 2}
+    volume: 1
