@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -76,6 +77,8 @@ namespace StarterAssets
 
 		public bool CanDoubleJump { get; set; }
 
+		[SerializeField] private TMP_Text debugText;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -148,7 +151,11 @@ namespace StarterAssets
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
 			var wasInAir = !Grounded;
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-			if (wasInAir && Grounded) _hasDoubleJumped = false;
+			if (wasInAir && Grounded)
+			{
+				_hasDoubleJumped = false;
+				_readyForSecondJump = false;
+			}
 		}
 
 		private void CameraRotation()
@@ -232,7 +239,9 @@ namespace StarterAssets
 				_readyForSecondJump = true;
 			}
 			
-			var hasJumpLeft = CanDoubleJump && !_hasDoubleJumped && _readyForSecondJump;
+			var hasJumpLeft = CanDoubleJump && _readyForSecondJump;
+
+			// debugText.text = hasJumpLeft.ToString();
 			
 			if (Grounded || hasJumpLeft && _input.jump)
 			{
