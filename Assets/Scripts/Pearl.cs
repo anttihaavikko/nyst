@@ -1,5 +1,6 @@
 using System;
 using AnttiStarterKit.Extensions;
+using AnttiStarterKit.ScriptableObjects;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,6 +9,7 @@ public class Pearl : MonoBehaviour
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Clickable clickable;
     [SerializeField] private MeshRenderer mesh;
+    [SerializeField] private SoundComposition splash;
 
     private Vector3 _respawn;
 
@@ -32,6 +34,7 @@ public class Pearl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Kill")) return;
+        splash.Play(transform.position);
         transform.position = _respawn;
         rigidBody.linearVelocity = Vector3.zero;
         rigidBody.angularVelocity = Vector3.zero;

@@ -5069,11 +5069,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: pearl
   outline: {fileID: 2795049599495204745}
+  extraOutlines: []
   pointDelay: 0.3
   locked: 0
   poweredBy: []
   clickEffect: 1
   sound: {fileID: 11400000, guid: 42ac78b030d854d528640a1416e7e1e7, type: 2}
+  lockSound: {fileID: 0}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   type: 0
 --- !u!114 &2795049599495204745
@@ -5109,6 +5111,7 @@ MonoBehaviour:
   rigidBody: {fileID: 0}
   clickable: {fileID: 6715224358817482009}
   mesh: {fileID: 6504262976019456904}
+  splash: {fileID: 11400000, guid: 4dc9fa6943b724e938bb802e8af979e7, type: 2}
 --- !u!114 &6879772472593658006
 MonoBehaviour:
   m_ObjectHideFlags: 0
