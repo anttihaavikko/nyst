@@ -110,9 +110,11 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Foam: 1.5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Height_Offset: 0
     - _Lod: 1
     - _Metallic: 0
     - _Noise_Scale: 0.01
