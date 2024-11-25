@@ -11,6 +11,9 @@ public class Toggleable : Activatable
     [SerializeField] private bool bounces = true;
     [SerializeField] private SoundComposition sound;
     [SerializeField] private float nudgeAmount = 0.1f;
+    [SerializeField] private AudioSource moveSound;
+    [SerializeField] private SoundComposition endSound;
+    [SerializeField] private float moveVolume = 1f;
 
     private bool _state;
     private Vector3 _originalPosition, _originalScale;
@@ -37,6 +40,18 @@ public class Toggleable : Activatable
         Tweener.MoveTo(normal, _state ? toggled.position : _originalPosition, duration * durationMod, easeFunc);
         Tweener.ScaleTo(normal, _state ? toggled.localScale : _originalScale, duration * durationMod, easeFunc);
         Tweener.Instance.RotateTo(normal, _state ? toggled.rotation : _originalRotation, duration * durationMod, 0, easeFunc);
+        if(moveSound)
+        {
+            moveSound.gameObject.SetActive(true);
+            moveSound.PlayOneShot(moveSound.clip, moveVolume);
+        }
+        Invoke(nameof(MoveEnded), duration * durationMod - 0.3f);
+    }
+
+    private void MoveEnded()
+    {
+        if(moveSound) moveSound.gameObject.SetActive(false);
+        if(endSound) endSound.Play(transform.position);
     }
 
     public void Nudge()
