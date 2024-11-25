@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AnttiStarterKit.Extensions;
+using AnttiStarterKit.Utils;
 using StarterAssets;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Respawner : MonoBehaviour
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform safeSpot;
+    [SerializeField] private Transform spot;
     
     private readonly List<Vector3> _respawns = new();
     private bool _waiting;
@@ -18,6 +20,11 @@ public class Respawner : MonoBehaviour
     {
         SaveSpot();
         firstPersonController.Jumped += SaveSpot;
+    }
+
+    private void Update()
+    {
+        if (DevKey.Down(KeyCode.C)) Teleport(spot.position);
     }
 
     private void SaveSpot()
@@ -32,9 +39,12 @@ public class Respawner : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Kill")) return;
-        
         other.GetComponent<SoundContainer>()?.Play(transform.position);
+        Teleport(_respawns.Any() ? _respawns.Last() : safeSpot.position);
+    }
 
+    private void Teleport(Vector3 position)
+    {
         var wasLocked = firstPersonController.Locked;
         SceneChanger.Instance.blinders.Close();
         firstPersonController.Locked = true;
@@ -42,7 +52,7 @@ public class Respawner : MonoBehaviour
         this.StartCoroutine(() =>
         {
             controller.enabled = false;
-            controller.transform.position = _respawns.Any() ? _respawns.Last() : safeSpot.position;
+            controller.transform.position = position;
             if(_respawns.Any()) _respawns.RemoveAt(_respawns.Count - 1);
             controller.enabled = true;
             SceneChanger.Instance.blinders.Open();
