@@ -371,6 +371,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   lockSound: {fileID: 0}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  nudges: 0
 --- !u!114 &6327833209350375966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +407,7 @@ MonoBehaviour:
   duration: 0.5
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.1
 --- !u!1 &6315142583198078825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1080,7 @@ MonoBehaviour:
   duration: 0.7
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.1
 --- !u!1 &1717492224586488679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1751480086967751553, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
@@ -1126,6 +1129,7 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: d0da57118c65f4aa9861bb79dc4e486e, type: 2}
   lockSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  nudges: 1
 --- !u!114 &1991038255905605991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,6 +1165,7 @@ MonoBehaviour:
   duration: 0.5
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.01
 --- !u!4 &6955429121606865790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1216563296424698982, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}
@@ -1188,6 +1193,7 @@ MonoBehaviour:
   duration: 0.5
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.1
 --- !u!4 &8641850564874440947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e37e6718e843c4d9ead119ad77571c7e, type: 3}

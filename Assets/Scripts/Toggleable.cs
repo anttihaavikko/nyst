@@ -10,6 +10,7 @@ public class Toggleable : Activatable
     [SerializeField] private float duration = 0.5f;
     [SerializeField] private bool bounces = true;
     [SerializeField] private SoundComposition sound;
+    [SerializeField] private float nudgeAmount = 0.1f;
 
     private bool _state;
     private Vector3 _originalPosition, _originalScale;
@@ -40,9 +41,9 @@ public class Toggleable : Activatable
 
     public void Nudge()
     {
-        Tweener.MoveTo(normal, Vector3.Lerp(_originalPosition, toggled.position, 0.15f), 0.15f, TweenEasings.BounceEaseOut);
-        Tweener.ScaleTo(normal, Vector3.Lerp(_originalScale, toggled.localScale, 0.15f), 0.15f, TweenEasings.BounceEaseOut);
-        Tweener.Instance.RotateTo(normal, Quaternion.Lerp(_originalRotation, toggled.rotation, 0.15f), 0.15f, 0, TweenEasings.BounceEaseOut);
+        Tweener.MoveTo(normal, Vector3.Lerp(_originalPosition, toggled.position, nudgeAmount), 0.15f, TweenEasings.BounceEaseOut);
+        Tweener.ScaleTo(normal, Vector3.Lerp(_originalScale, toggled.localScale, nudgeAmount), 0.15f, TweenEasings.BounceEaseOut);
+        Tweener.Instance.RotateTo(normal, Quaternion.Lerp(_originalRotation, toggled.rotation, nudgeAmount), 0.15f, 0, TweenEasings.BounceEaseOut);
         this.StartCoroutine(() => ToggleTo(false, 0.5f), 0.15f);
     }
     

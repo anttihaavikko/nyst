@@ -316,6 +316,7 @@ MonoBehaviour:
   duration: 0.5
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.1
 --- !u!4 &1954687321967231028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d45b1c5844cb4a3ea7950b130d068b7, type: 3}
@@ -343,6 +344,7 @@ MonoBehaviour:
   duration: 0.7
   bounces: 1
   sound: {fileID: 0}
+  nudgeAmount: 0.01
 --- !u!1 &2441225935457703730 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4806973903773552403, guid: 1d45b1c5844cb4a3ea7950b130d068b7, type: 3}
@@ -513,6 +515,7 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 8e861c9ef8650450f9a2f8cec0620c55, type: 2}
   lockSound: {fileID: 11400000, guid: d2bf201323a0a41359d9bbfc17f4f15d, type: 2}
   buttonOffColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  resetAfter: -1
 --- !u!114 &7615495875192814292
 MonoBehaviour:
   m_ObjectHideFlags: 0
