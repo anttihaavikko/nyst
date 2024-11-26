@@ -1,16 +1,23 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Activator))]
 public class Computer : MonoBehaviour
 {
     [SerializeField] private Board board;
     [SerializeField] private Transform player;
     [SerializeField] private int maxLength = 12;
+    [SerializeField] private string password;
 
+    private Activator _activator;
     private string _text = "hello world!";
+
+    public string Password => password;
+    public Action PasswordInput { get; set; }
 
     private void Start()
     {
+        _activator = GetComponent<Activator>();
         _text = board.GetText();
     }
 
@@ -53,11 +60,30 @@ public class Computer : MonoBehaviour
         if (_text.Length >= maxLength) return;
         _text += letter;
         board.Show(_text);
+        
+        PasswordInput?.Invoke();
+
+        if (Clean(password) == Clean(_text))
+        {
+            _activator.Activate();
+        }
+    }
+
+    public bool HasCorrect(int start, int length = 2)
+    {
+        return _text.Length >= start + length &&
+               Clean(_text).Substring(start, length) == Clean(password).Substring(start, length);
+    }
+
+    public string Clean(string input)
+    {
+        return input.Replace("!", ".");
     }
 
     public void Clear()
     {
         _text = "";
         board.Show(_text);
+        PasswordInput?.Invoke();
     }
 }
