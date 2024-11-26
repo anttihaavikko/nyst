@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using AnttiStarterKit.Extensions;
 using UnityEngine;
 
 [RequireComponent(typeof(Activator))]
@@ -7,18 +9,21 @@ public class Computer : MonoBehaviour
     [SerializeField] private Board board;
     [SerializeField] private Transform player;
     [SerializeField] private int maxLength = 12;
-    [SerializeField] private string password;
+    [SerializeField] private WordDictionary passwords;
 
     private Activator _activator;
     private string _text = "hello world!";
+    private string _password;
 
-    public string Password => password;
+    public string Password => _password;
     public Action PasswordInput { get; set; }
 
     private void Start()
     {
         _activator = GetComponent<Activator>();
         _text = board.GetText();
+        passwords.Setup();
+        _password = passwords.RandomWord();
     }
 
     private void Update()
@@ -63,7 +68,7 @@ public class Computer : MonoBehaviour
         
         PasswordInput?.Invoke();
 
-        if (Clean(password) == Clean(_text))
+        if (_password == _text)
         {
             _activator.Activate();
         }
@@ -71,13 +76,7 @@ public class Computer : MonoBehaviour
 
     public bool HasCorrect(int start, int length = 2)
     {
-        return _text.Length >= start + length &&
-               Clean(_text).Substring(start, length) == Clean(password).Substring(start, length);
-    }
-
-    public string Clean(string input)
-    {
-        return input.Replace("!", ".");
+        return _text.Length >= start + length && _text.Substring(start, length) == _password.Substring(start, length);
     }
 
     public void Clear()
