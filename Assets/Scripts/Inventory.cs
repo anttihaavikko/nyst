@@ -67,6 +67,14 @@ public class Inventory : MonoBehaviour
         {
             Add(CollectibleType.Compass);
         }
+        
+        if (DevKey.Down(KeyCode.G))
+        {
+            Add(CollectibleType.GemGreen);
+            Add(CollectibleType.GemRed);
+            Add(CollectibleType.GemBlue);
+            Add(CollectibleType.GemYellow);
+        }
     }
 
     public void AddPearl(Pearl pearl)
@@ -106,5 +114,15 @@ public class Inventory : MonoBehaviour
     public bool Has(CollectibleType type)
     {
         return _collectibles.Contains(type);
+    }
+
+    public void Toggle(CollectibleType type)
+    {
+        if (_collectibles.Contains(type))
+        {
+            _collectibles.Remove(type);
+            return;
+        }
+        _collectibles.Add(type);
     }
 }

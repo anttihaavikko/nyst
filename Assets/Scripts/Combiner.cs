@@ -17,4 +17,9 @@ public class Combiner : Activatable
         _count++;
         if(_count >= targetCount) _activator.Activate();
     }
+
+    public void Deactivate()
+    {
+        _count--;
+    }
 }
