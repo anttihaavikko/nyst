@@ -28,7 +28,7 @@ public class HackMenu : MonoBehaviour
     public void Find()
     {
         lights.ForEach(l => l.color = _offColor);
-        _current = safes.Where(s => Vector3.Distance(transform.position, s.transform.position) < 2f)
+        _current = safes.Where(s => Vector3.Distance(transform.position, s.transform.position) < 5f)
             .OrderBy(s => Vector3.Distance(transform.position, s.transform.position))
             .FirstOrDefault();
         _light = 0;
