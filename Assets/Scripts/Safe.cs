@@ -5,10 +5,12 @@ using UnityEngine;
 public class Safe : ButtonPanel
 {
     [SerializeField] private List<string> passwords;
+    [SerializeField] private string frequency;
 
     private string _input = "";
 
     public bool IsCorrect => passwords.Contains(_input);
+    public string Frequency => frequency;
     
     public override void Check(PushButton button)
     {

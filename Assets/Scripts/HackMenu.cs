@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Utils;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class HackMenu : MonoBehaviour
 {
     [SerializeField] private List<Image> lights;
     [SerializeField] private List<Safe> safes;
+    [SerializeField] private TMP_Text frequency;
 
     private int _light;
     private Safe _current;
@@ -31,6 +33,7 @@ public class HackMenu : MonoBehaviour
             .FirstOrDefault();
         _light = 0;
         if(_current) _numbers = _current.GetNumbers();
+        frequency.text = _current ? _current.Frequency : "NOT FOUND!";
         Blink();
     }
 
