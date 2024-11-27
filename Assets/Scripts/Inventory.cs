@@ -62,6 +62,7 @@ public class Inventory : MonoBehaviour
         if (DevKey.Down(KeyCode.H))
         {
             IsHacking = true;
+            cheatMenu.Unlock();
         }
         
         if (DevKey.Down(KeyCode.C))

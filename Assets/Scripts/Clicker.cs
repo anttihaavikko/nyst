@@ -24,6 +24,8 @@ public class Clicker : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private SoundComposition noPowerSound;
 
+    [SerializeField] private Hands hands;
+
     private Clickable _prev;
 
     private void Start()
@@ -33,6 +35,8 @@ public class Clicker : MonoBehaviour
 
     private void Update()
     {
+        if (hands.IsMenuing) return;
+        
         var ray = new Ray(cam.transform.position - cam.transform.forward * 0.5f, cam.transform.forward);
         var hits = Physics.RaycastAll(ray.origin, ray.direction, distance, mask);
         if (hits.Length <= 0)

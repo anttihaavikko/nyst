@@ -19,4 +19,10 @@ public class Safe : ButtonPanel
     {
         _input = "";
     }
+
+    public List<int> GetNumbers()
+    {
+        // Debug.Log(string.Join(",", passwords[0]));
+        return passwords[0].ToCharArray().Select(s => int.Parse(s.ToString())).ToList();
+    }
 }

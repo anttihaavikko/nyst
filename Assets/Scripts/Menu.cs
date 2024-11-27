@@ -6,6 +6,7 @@ using UnityEngine;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private List<MenuOption> options;
+    [SerializeField] private HackMenu hackMenu;
     
     private int _current;
 
@@ -23,7 +24,7 @@ public class Menu : MonoBehaviour
             ChangeOption(dir);
             return;
         }
-        options[_current].gameObject.SetActive(true);
+        Toggle(true);
     }
 
     public void Act()
@@ -33,6 +34,7 @@ public class Menu : MonoBehaviour
 
     public void Toggle(bool state)
     {
+        if(_current == 1) hackMenu.Find();
         options[_current].gameObject.SetActive(state);
     }
 }

@@ -40,6 +40,8 @@ public class Hands : MonoBehaviour
     private static readonly int ShowAnim = Animator.StringToHash("show");
     private static readonly int GrabAnim = Animator.StringToHash("grab");
 
+    public bool IsMenuing => _state;
+
     private void Start()
     {
         firstPersonController.Jumped += JumpSound;
