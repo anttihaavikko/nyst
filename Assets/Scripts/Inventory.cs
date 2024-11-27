@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private HintBoard hintBoard;
     [SerializeField] private GameObject compass, gemRed, gemGreen, gemBlue, gemYellow;
     [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private MenuOption cheatMenu;
 
     private bool _visible;
     private readonly Stack<Material> _pearlMaterials = new();
@@ -109,6 +110,7 @@ public class Inventory : MonoBehaviour
     {
         if(!_collectibles.Contains(type)) _collectibles.Add(type);
         if (type == CollectibleType.Jetpack) firstPersonController.CanDoubleJump = true;
+        if (type == CollectibleType.Router) cheatMenu.Unlock();
     }
 
     public bool Has(CollectibleType type)

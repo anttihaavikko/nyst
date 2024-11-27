@@ -18,6 +18,11 @@ public class Menu : MonoBehaviour
     {
         options[_current].gameObject.SetActive(false);
         _current = (_current + dir).LoopAround(0, options.Count);
+        if (options[_current].IsLocked)
+        {
+            ChangeOption(dir);
+            return;
+        }
         options[_current].gameObject.SetActive(true);
     }
 
