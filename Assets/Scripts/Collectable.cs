@@ -33,5 +33,6 @@ public enum CollectibleType
     GemRed,
     GemBlue,
     GemYellow,
-    Jetpack
+    Jetpack,
+    Router
 }
