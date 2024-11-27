@@ -4,6 +4,7 @@ using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Managers;
 using AnttiStarterKit.ScriptableObjects;
 using AnttiStarterKit.Utils;
+using Cinemachine;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
@@ -27,7 +28,8 @@ public class Hands : MonoBehaviour
     [SerializeField] private Transform legPosition;
     [SerializeField] private Compass compass;
     [SerializeField] private Menu menu;
-
+    [SerializeField] private CinemachineImpulseSource impulseSource;
+    
     private float _launchSpeed;
     private Pearl _spawned;
     private bool _state;
@@ -61,6 +63,7 @@ public class Hands : MonoBehaviour
             var volume = Mathf.Clamp(Mathf.Abs(firstPersonController.VerticalVelocity) * 0.1f, 0, 1f);
             _landSoundDelay = 0.2f;
             landSound.Play(legPosition.position, volume);
+            impulseSource.GenerateImpulse(volume * 0.3f);
         }
 
         _wasGrounded = firstPersonController.Grounded;
