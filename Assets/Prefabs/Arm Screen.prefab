@@ -2870,7 +2870,9 @@ MonoBehaviour:
   sliders:
   - {fileID: 7488612829262441314}
   - {fileID: 315303980990570215}
+  - {fileID: 1627736880495927294}
   sample: {fileID: 11400000, guid: b7d5e225a83d44143bea13ad456d01d8, type: 2}
+  firstPersonController: {fileID: 0}
 --- !u!114 &7524455783200107020
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private List<BoolToggle> toggles;
     [SerializeField] private List<Slider> sliders;
     [SerializeField] private SoundComposition sample;
+    [SerializeField] private FirstPersonController firstPersonController;
 
     private float _sampleCooldown;
     
@@ -31,6 +32,7 @@ public class GameSettings : MonoBehaviour
 
         sliders[0].value = AudioManager.Instance.MusicVolume;
         sliders[1].value = AudioManager.Instance.SoundVolume;
+        sliders[2].value = firstPersonController.RotationSpeed / 10f;
         
         sliders[0].onValueChanged.AddListener(vol => AudioManager.Instance.ChangeMusicVolume(vol));
         sliders[1].onValueChanged.AddListener(vol =>
@@ -40,6 +42,7 @@ public class GameSettings : MonoBehaviour
             sample.Play(cam.position);
             _sampleCooldown = 0.3f;
         });
+        sliders[2].onValueChanged.AddListener(val => firstPersonController.RotationSpeed = val * 10f);
     }
 
     private void Update()
