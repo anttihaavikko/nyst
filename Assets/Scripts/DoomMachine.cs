@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AnttiStarterKit.Animations;
 using AnttiStarterKit.Managers;
 using AnttiStarterKit.Utils;
+using Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,7 @@ public class DoomMachine : Activatable
     [SerializeField] private MusicChanger musicChanger;
     [SerializeField] private Material waterMaterial, lavaMaterial;
     [SerializeField] private MeshRenderer water;
+    [SerializeField] private CinemachineImpulseSource impulseSource;
 
     private bool _state;
     private float _transition;
@@ -47,5 +49,6 @@ public class DoomMachine : Activatable
         // AudioManager.Instance.ChangeMusic(_state ? 1 : 0);
         musicChanger.Toggle();
         water.material = _state ? lavaMaterial : waterMaterial;
+        impulseSource.GenerateImpulse(0.2f);
     }
 }

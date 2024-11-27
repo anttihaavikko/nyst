@@ -12,6 +12,7 @@ public class Respawner : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform safeSpot;
     [SerializeField] private Transform spot;
+    [SerializeField] private Transform beach;
     
     private readonly List<Vector3> _respawns = new();
     private bool _waiting;
@@ -25,6 +26,7 @@ public class Respawner : MonoBehaviour
     private void Update()
     {
         if (DevKey.Down(KeyCode.C)) Teleport(spot.position);
+        if (DevKey.Down(KeyCode.P)) Teleport(beach.position);
     }
 
     private void SaveSpot()
