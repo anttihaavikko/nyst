@@ -29,6 +29,8 @@ namespace AnttiStarterKit.Managers
 
 		private bool doingLowpass, doingHighpass;
 
+		public float passSpeed = 1f;
+
 		[SerializeField] private List<SoundCollection> soundCollections;
 
 		/******/
@@ -106,7 +108,7 @@ namespace AnttiStarterKit.Managers
 		{
 			var targetLowpass = (doingLowpass) ? 5000f : 22000;
 			var targetHighpass = (doingHighpass) ? 400f : 10f;
-			var changeSpeed = Time.deltaTime * 60f;
+			var changeSpeed = Time.deltaTime * 60f * passSpeed;
 
 			curMusic.pitch = Mathf.MoveTowards (curMusic.pitch, TargetPitch, 0.005f * changeSpeed);
 			if(lowpass) lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 750f * changeSpeed);

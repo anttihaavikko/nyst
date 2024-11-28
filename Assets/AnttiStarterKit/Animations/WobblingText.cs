@@ -73,7 +73,8 @@ namespace AnttiStarterKit.Animations
         
         private void OffsetCharacter(int index, TMP_CharacterInfo info, ref Vector3[] verts)
         {
-            var offset = Vector3.zero.WhereY(Mathf.Sin(Time.time * speed + index * 0.5f + baseOffset) * amount);
+            var phase = Mathf.Sin(Time.time * speed + index * 0.5f + baseOffset);
+            var offset = Vector3.zero.WhereY(phase * amount);
             verts[info.vertexIndex] += offset * bottomModifier;
             verts[info.vertexIndex + 1] += offset * topModifier;
             verts[info.vertexIndex + 2] += offset * topModifier;

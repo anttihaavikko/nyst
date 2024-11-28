@@ -1,5 +1,6 @@
 using System;
 using AnttiStarterKit.Extensions;
+using AnttiStarterKit.Managers;
 using StarterAssets;
 using UnityEngine;
 
@@ -24,5 +25,7 @@ public class StartView : MonoBehaviour
         _started = true;
         cursor.SetActive(true);
         firstPersonController.Locked = false;
+        AudioManager.Instance.Lowpass(false);
+        AudioManager.Instance.Highpass(false);
     }
 }
