@@ -9,9 +9,15 @@ public class MusicChanger : MonoBehaviour
 
     private bool _state;
     private float _phase;
+    private bool _ending;
 
     private void Update()
     {
+        if (_ending)
+        {
+            normal.pitch = Mathf.MoveTowards(normal.pitch, 0, Time.deltaTime * 0.5f);
+            return;
+        }
         var vol = AudioManager.Instance.MusicVolume;
         _phase = Mathf.MoveTowards(_phase, _state ? 1 : 0, Time.deltaTime * 0.5f);
         var val = TweenEasings.QuadraticEaseInOut(_phase);
@@ -24,5 +30,10 @@ public class MusicChanger : MonoBehaviour
     public void Toggle()
     {
         _state = !_state;
+    }
+
+    public void PitchOut()
+    {
+        _ending = true;
     }
 }
