@@ -28,6 +28,11 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         var cam = Camera.main!.transform;
+        if (PlayerPrefs.HasKey("NystQuality"))
+        {
+            QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("NystQuality"));
+        }
+
         UpdateQualityName();
 
         sliders[0].value = AudioManager.Instance.MusicVolume;
@@ -64,6 +69,7 @@ public class GameSettings : MonoBehaviour
 
     private void UpdateQualityName()
     {
+        PlayerPrefs.SetInt("NystQuality", QualitySettings.GetQualityLevel());
         qualityDisplay.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
     }
 }
