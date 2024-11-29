@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
     public int Keys { get; set; }
     public int Pearls { get; private set; }
     public int Batteries { get; set; }
+    public int Coins { get; set; }
     public bool IsHacking { get; private set; }
 
     public Material PearlMaterial => _pearlMaterials.Peek();

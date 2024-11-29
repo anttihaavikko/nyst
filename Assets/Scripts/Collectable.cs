@@ -13,6 +13,7 @@ public class Collectable : Clickable
         if (type == CollectibleType.Battery) inventory.Batteries++;
         if (type == CollectibleType.Pearl) inventory.AddPearl(gameObject.GetComponent<Pearl>());
         if (type == CollectibleType.Key) inventory.Keys++;
+        if (type == CollectibleType.Coin) inventory.Coins++;
         inventory.Add(type);
         inventory.UpdateCounts();
     }
@@ -34,5 +35,6 @@ public enum CollectibleType
     GemBlue,
     GemYellow,
     Jetpack,
-    Router
+    Router,
+    Coin
 }
