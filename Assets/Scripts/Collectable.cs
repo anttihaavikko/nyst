@@ -13,7 +13,7 @@ public class Collectable : Clickable
         if (type == CollectibleType.Battery) inventory.Batteries++;
         if (type == CollectibleType.Pearl) inventory.AddPearl(gameObject.GetComponent<Pearl>());
         if (type == CollectibleType.Key) inventory.Keys++;
-        if (type == CollectibleType.Coin) inventory.Coins++;
+        if (type == CollectibleType.Coin) inventory.Coins += 5;
         inventory.Add(type);
         inventory.UpdateCounts();
     }
