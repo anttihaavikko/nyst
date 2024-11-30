@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: throw
   m_EditorClassIdentifier: 
   rows:
-  - clip: {fileID: 8300000, guid: 6e300694b41a84b53a95df102dbf78df, type: 3}
-    volume: 1
-  - clip: {fileID: 8300000, guid: e2ba26c7372544016b1e12779bacc7e2, type: 3}
-    volume: 0.62
   - clip: {fileID: 8300000, guid: 859b345cfc7aa46d6a7183a7449481c4, type: 3}
     volume: 0.44
+  - clip: {fileID: 8300000, guid: 191e9113f05d942c5bf6a708c78a652d, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 75dae89191bba47aa8db6ce7669b2496, type: 3}
+    volume: 1
   collections: []
