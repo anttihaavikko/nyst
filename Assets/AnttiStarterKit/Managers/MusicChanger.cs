@@ -13,9 +13,9 @@ namespace AnttiStarterKit.Managers
         
         private void Start()
         {
-            AudioManager.Instance.Highpass(false);
-            AudioManager.Instance.Lowpass(false);
-            AudioManager.Instance.ChangeMusic(musicIndex, fadeIn, fadeOut, delay);
+            // AudioManager.Instance.Highpass(false);
+            // AudioManager.Instance.Lowpass(false);
+            // AudioManager.Instance.ChangeMusic(musicIndex, fadeIn, fadeOut, delay);
         }
     }
 }

@@ -14,8 +14,8 @@ namespace AnttiStarterKit.Managers
 		private float musVolume = 0.5f;
 		public AudioClip[] effects;
 
-		private AudioLowPassFilter lowpass;
-		private AudioHighPassFilter highpass;
+		[SerializeField] private AudioLowPassFilter lowpass;
+		[SerializeField] private AudioHighPassFilter highpass;
 
 		public float TargetPitch { get; set; } = 1f;
 
@@ -27,7 +27,8 @@ namespace AnttiStarterKit.Managers
 		private float fadeOutPos = 0f, fadeInPos = 0f;
 		private float fadeOutDuration = 1f, fadeInDuration = 3f;
 
-		private bool doingLowpass, doingHighpass;
+		[SerializeField] private bool doingLowpass;
+		[SerializeField] private bool doingHighpass;
 
 		public float passSpeed = 1f;
 
@@ -67,17 +68,18 @@ namespace AnttiStarterKit.Managers
 
 		public void Lowpass(bool state = true)
 		{
-			if (!lowpass) lowpass = Camera.main.GetComponent<AudioLowPassFilter>();
-
+			// if (!lowpass) lowpass = Camera.main.GetComponent<AudioLowPassFilter>();
+			// if (lowpass) lowpass.enabled = false;
 			doingLowpass = state;
-			doingHighpass = false;
+			// doingHighpass = false;
 		}
 
 		public void Highpass(bool state = true)
 		{
-			if (!highpass) highpass = Camera.main.GetComponent<AudioHighPassFilter>();
+			// if (!highpass) highpass = Camera.main.GetComponent<AudioHighPassFilter>();
+			// if (highpass) highpass.enabled = false;
 			doingHighpass = state;
-			doingLowpass = false;
+			// doingLowpass = false;
 		}
 
 		public void ChangeMusic(int next, float fadeOutDur = 1f, float fadeInDur = 0.5f, float startDelay = 0.5f)
@@ -111,7 +113,7 @@ namespace AnttiStarterKit.Managers
 			var changeSpeed = Time.deltaTime * 60f * passSpeed;
 
 			curMusic.pitch = Mathf.MoveTowards (curMusic.pitch, TargetPitch, 0.005f * changeSpeed);
-			if(lowpass) lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 750f * changeSpeed);
+			if (lowpass) lowpass.cutoffFrequency = Mathf.MoveTowards (lowpass.cutoffFrequency, targetLowpass, 750f * changeSpeed);
 			if (highpass) highpass.cutoffFrequency = Mathf.MoveTowards (highpass.cutoffFrequency, targetHighpass, 50f * changeSpeed);
 		
 			if (fadeInPos < 1f) fadeInPos += Time.unscaledDeltaTime / fadeInDuration;

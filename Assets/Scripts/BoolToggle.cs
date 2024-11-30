@@ -16,7 +16,7 @@ public class BoolToggle : MonoBehaviour
     
     public Action<bool> OnToggle { get; set; }
 
-    private void Start()
+    private void Awake()
     {
         _label = field.text.Split(":").FirstOrDefault();
         state = PlayerPrefs.GetInt(key, state ? 1 : 0) == 1;

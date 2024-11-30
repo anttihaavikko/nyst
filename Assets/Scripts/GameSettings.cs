@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Managers;
 using AnttiStarterKit.ScriptableObjects;
 using StarterAssets;
@@ -16,6 +17,7 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private List<Slider> sliders;
     [SerializeField] private SoundComposition sample;
     [SerializeField] private FirstPersonController firstPersonController;
+    [SerializeField] private GameObject uiCanvas;
 
     private float _sampleCooldown;
     
@@ -57,13 +59,13 @@ public class GameSettings : MonoBehaviour
 
     public void IncreaseQuality()
     {
-        QualitySettings.IncreaseLevel();
+        QualitySettings.IncreaseLevel(true);
         UpdateQualityName();
     }
     
     public void DecreaseQuality()
     {
-        QualitySettings.DecreaseLevel();
+        QualitySettings.DecreaseLevel(true);
         UpdateQualityName();
     }
 

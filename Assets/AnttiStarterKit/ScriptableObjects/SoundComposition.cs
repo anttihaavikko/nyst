@@ -33,7 +33,10 @@ namespace AnttiStarterKit.ScriptableObjects
         public void Play(Vector3 pos, float volume = 1f)
         {
             var am = AudioManager.Instance;
+            
+#if UNITY_EDITOR
             if (!am && !EditorApplication.isPlaying) return;
+#endif
             
             foreach (var row in rows)
             {
