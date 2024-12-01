@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: hit
   m_EditorClassIdentifier: 
   rows:
-  - clip: {fileID: 8300000, guid: e2ba26c7372544016b1e12779bacc7e2, type: 3}
-    volume: 0.98
   - clip: {fileID: 8300000, guid: 50875fb4bf5be47a38e8bf882262aa95, type: 3}
     volume: 0.63
   - clip: {fileID: 8300000, guid: ed632a692e1c44e72877bbf3bcebc597, type: 3}

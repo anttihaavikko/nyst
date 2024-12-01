@@ -30,5 +30,6 @@ public class StartView : MonoBehaviour
         AudioManager.Instance.Lowpass(false);
         AudioManager.Instance.Highpass(false);
         fpsDisplay.CanWarn = true;
+        Hands.SetCursorState(true);
     }
 }

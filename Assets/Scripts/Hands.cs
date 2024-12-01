@@ -136,7 +136,7 @@ public class Hands : MonoBehaviour
         }
     }
 
-    private void SetCursorState(bool newState)
+    public static void SetCursorState(bool newState)
     {
         Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
     }
