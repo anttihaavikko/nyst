@@ -1,6 +1,7 @@
 using System;
 using AnttiStarterKit.Extensions;
 using AnttiStarterKit.Managers;
+using AnttiStarterKit.Utils;
 using StarterAssets;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class StartView : MonoBehaviour
     [SerializeField] private GameObject cam;
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private GameObject cursor;
+    [SerializeField] private FrameRateDisplay fpsDisplay;
 
     private bool _started;
 
@@ -27,5 +29,6 @@ public class StartView : MonoBehaviour
         firstPersonController.Locked = false;
         AudioManager.Instance.Lowpass(false);
         AudioManager.Instance.Highpass(false);
+        fpsDisplay.CanWarn = true;
     }
 }

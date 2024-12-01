@@ -29,6 +29,7 @@ public class Hands : MonoBehaviour
     [SerializeField] private Compass compass;
     [SerializeField] private Menu menu;
     [SerializeField] private CinemachineImpulseSource impulseSource;
+    [SerializeField] private FrameRateDisplay fpsDisplay;
     
     private float _launchSpeed;
     private Pearl _spawned;
@@ -146,6 +147,7 @@ public class Hands : MonoBehaviour
         _canChange = false;
         menu.ChangeOption(dir);
         this.StartCoroutine(() => _canChange = true, 0.3f);
+        if(menu.IsQuality) fpsDisplay.DisableWarning();
     }
 
     public void Toggle()
@@ -159,6 +161,7 @@ public class Hands : MonoBehaviour
         if (_state)
         {
             inputs.move = inputs.look = Vector2.zero;
+            fpsDisplay.HideWarning();
         }
         
         // if(_state) revertables.ForEach(r => r.Snap());

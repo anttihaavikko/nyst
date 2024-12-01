@@ -10,6 +10,8 @@ public class Menu : MonoBehaviour
     
     private int _current;
 
+    public bool IsQuality => _current == 1;
+
     private void Start()
     {
         options.ForEach(o => o.gameObject.SetActive(false));
