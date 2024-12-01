@@ -1,6 +1,6 @@
 # Hemlock Algorithm
 
-Welcome to the Hemlock Algorith! Explore the world filled with puzzles and secrets.
+Welcome to the Hemlock Algorithm! Explore the world filled with puzzles and secrets.
 
 I wanted to try out doing a 3D game in like first time ever if not counting some unfinished test projects. And dang, it is some much more complex with that one extra dimesion. Of course it's not just that extra dimension you need to worry about but also all the lighting stuff etc which is so much simpler in 2D. For me at least. But exploring a three dimensional space is really so much more interesting than in 2D where you pretty much see everything at a glance.
 
