@@ -6,6 +6,8 @@ I wanted to try out doing a 3D game in like first time ever if not counting some
 
 So having decided that I wanted to try out 3D and the theme being SECRETS, it was quite an obvious choice to go with an explorative puzzle solving game along the lines of Myst or Witness (for what I know about it never having actually played it) and escape rooms. Explore this small(ish) area collecting items and solving different kinds of puzzles and find your way out of there...
 
+[Download from itch.io!](https://anttihaavikko.itch.io/hemlock-algorithm)
+
 ## Credits
 
 Made by Antti Haavikko for GitHub Game Off 2024
